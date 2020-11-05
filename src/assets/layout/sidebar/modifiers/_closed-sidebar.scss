@@ -8,7 +8,7 @@
     z-index: 13;
 
     .app-header__logo {
-      width: auto;
+      width: 100%;
     }
 
     .logo-src {
@@ -31,7 +31,7 @@
         text-indent: -999em;
 
         &::before {
-          content: '';
+          content: "";
           position: absolute;
           top: 50%;
           left: 0;
@@ -52,7 +52,6 @@
         margin-left: -20px;
       }
     }
-
   }
 
   .app-header .app-header__content {
@@ -122,4 +121,3 @@
     }
   }
 }
-

@@ -65,7 +65,7 @@ export default {
                             title: "Assign orders"
                         },
                         {
-                            href: "",
+                            href: "/active_orders",
                             title: "List active orders"
                         }
                     ]
@@ -75,11 +75,11 @@ export default {
                     icon: "pe-7s-albums",
                     child: [
                         {
-                            href: "",
+                            href: "/subscriptions",
                             title: "List all subscriptions"
                         },
                         {
-                            href: "",
+                            href: "/add_subscriptions",
                             title: "Add new subscription"
                         }
                     ]
@@ -90,15 +90,15 @@ export default {
                     icon: "pe-7s-config",
                     child: [
                         {
-                            href: "",
+                            href: "/info",
                             title: "Show application info"
                         },
                         {
-                            href: "",
+                            href: "/set_info",
                             title: "Set application info"
                         },
                         {
-                            href: "",
+                            href: "/edit_info",
                             title: "Edit application info"
                         }
                     ]
@@ -112,7 +112,7 @@ export default {
                     icon: "pe-7s-users",
                     child: [
                         {
-                            href: "",
+                            href: "/users",
                             title: "List all users"
                         },
                         {
@@ -130,21 +130,12 @@ export default {
                     icon: "pe-7s-id",
                     child: [
                         {
-                            href: "",
+                            href: "/delivery_boys",
                             title: "List all delivery boys"
                         },
                         {
-                            href: "",
+                            href: "/register_delivery_boy",
                             title: "Register a new delivery boy"
-                        },
-
-                        {
-                            href: "",
-                            title: "Activate delivery boy"
-                        },
-                        {
-                            href: "",
-                            title: "Deactivate delivery boy"
                         }
                     ]
                 },
@@ -156,18 +147,18 @@ export default {
                 {
                     title: "Payment Methods",
                     icon: "pe-7s-credit",
-                    href: ""
+                    href: "/payment"
                 },
                 {
                     title: "Coupons",
                     icon: "pe-7s-cash",
                     child: [
                         {
-                            href: "",
+                            href: "/coupons",
                             title: "All coupons"
                         },
                         {
-                            href: "",
+                            href: "/add_coupon",
                             title: "Add coupon"
                         }
                     ]

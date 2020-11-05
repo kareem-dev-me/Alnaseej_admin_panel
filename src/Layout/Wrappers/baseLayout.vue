@@ -1,9 +1,6 @@
 <template>
     <div class="app-container app-theme-white">
         <transition name="fade" mode="out-in" appear>
-            <Header />
-        </transition>
-        <transition name="fade" mode="out-in" appear>
             <Sidebar />
         </transition>
         <div class="app-main__outer">
@@ -11,7 +8,7 @@
                 <slot></slot>
             </div>
             <transition name="fade" mode="out-in" appear>
-                <Footer/>
+                <Footer />
             </transition>
         </div>
         <!-- Modal Component -->
@@ -28,30 +25,25 @@
 </template>
 
 <script>
-    import Header from "../Components/Header";
-    import Sidebar from "../Components/Sidebar";
-    import Footer from "../Components/Footer";
-    import VuePerfectScrollbar from 'vue-perfect-scrollbar'
+import Header from "../Components/Header";
+import Sidebar from "../Components/Sidebar";
+import Footer from "../Components/Footer";
+import VuePerfectScrollbar from "vue-perfect-scrollbar";
 
-    import {library} from '@fortawesome/fontawesome-svg-core'
-    import {
-        faCog,
-    } from '@fortawesome/free-solid-svg-icons'
-    import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faCog } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-    library.add(
-        faCog,
-    );
-    export default {
-        name: 'app',
-        components: {
-            Header,
-            Sidebar,
-            Footer,
-            VuePerfectScrollbar,
-            'font-awesome-icon': FontAwesomeIcon,
-        },
-        methods: {
-        },
-    }
+library.add(faCog);
+export default {
+    name: "app",
+    components: {
+        Header,
+        Sidebar,
+        Footer,
+        VuePerfectScrollbar,
+        "font-awesome-icon": FontAwesomeIcon
+    },
+    methods: {}
+};
 </script>

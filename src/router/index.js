@@ -20,10 +20,77 @@ export default new Router({
         // Pages
 
         {
-            path: '/pages/login-boxed',
+            path: '/login',
             name: 'login-boxed',
             meta: {layout: 'userpages'},
-            component: () => import('../DemoPages/UserPages/LoginBoxed.vue'),
+            component: () => import('../pages/login.vue'),
+        },
+        // users
+        {
+            path: '/users',
+            name: 'users',
+            component: () => import('../pages/users.vue'),
+        },
+        // payment
+        {
+            path: '/payment',
+            name: 'payment',
+            component: () => import('../pages/payment.vue'),
+        },
+        // delivery boys
+        {
+            path: '/delivery_boys',
+            name: 'delivery_boys',
+            component: () => import('../pages/delivery_boys.vue'),
+        },
+        {
+            path: '/register_delivery_boy',
+            name: 'register_delivery_boy',
+            component: () => import('../pages/register_delivery_boy.vue'),
+        },
+        // info
+        {
+            path: '/info',
+            name: 'info',
+            component: () => import('../pages/info.vue'),
+        },
+        {
+            path: '/set_info',
+            name: 'set_info',
+            component: () => import('../pages/set_info.vue'),
+        },
+        {
+            path: '/edit_info',
+            name: 'edit_info',
+            component: () => import('../pages/edit_info.vue'),
+        },
+        // subscriptions
+        {
+            path: '/subscriptions',
+            name: 'subscriptions',
+            component: () => import('../pages/subscriptions.vue'),
+        },
+        {
+            path: '/add_subscriptions',
+            name: 'add_subscriptions',
+            component: () => import('../pages/add_subscriptions.vue'),
+        },
+        // orders
+        {
+            path: '/active_orders',
+            name: 'active_orders',
+            component: () => import('../pages/active_orders.vue'),
+        },
+        // coupons
+        {
+            path: '/coupons',
+            name: 'coupons',
+            component: () => import('../pages/coupons.vue'),
+        },
+        {
+            path: '/add_coupon',
+            name: 'add_coupon',
+            component: () => import('../pages/add_coupon.vue'),
         },
         {
             path: '/pages/register-boxed',
