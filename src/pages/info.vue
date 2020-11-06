@@ -35,7 +35,7 @@
                 <div class="row">
                     <div
                         class="col-md-3"
-                        v-for="image in info.appImages"
+                        v-for="image in info.appImages.split(',')"
                         :key="image"
                     >
                         <b-img
@@ -99,7 +99,7 @@
 export default {
     data() {
         return {
-            info: {}
+            info: { appImages: "" }
         };
     },
     async mounted() {

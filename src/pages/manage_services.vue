@@ -95,16 +95,21 @@ export default {
             fs.append(
                 "data",
                 JSON.stringify({
-                    title: this.selected_service.title,
-                    id: this.selected_service.id
+                    title: this.selected_service.title
                 })
             );
             await this.$http
-                .post("/admin/laundryService/edit", fs, {
-                    headers: {
-                        Authorization: `Bearer ${localStorage.getItem("token")}`
+                .post(
+                    `/admin/laundryService/edit/${this.selected_service.id}`,
+                    fs,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${localStorage.getItem(
+                                "token"
+                            )}`
+                        }
                     }
-                })
+                )
                 .then(res => {
                     alert("Edited");
                 });

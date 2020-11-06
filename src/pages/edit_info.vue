@@ -42,7 +42,10 @@
                         drop-placeholder="Drop image here..."
                         name="image"
                         multiple
+                        @input="Filevalidation"
+                        v-model="images"
                     ></b-form-file>
+                    <p class="text-primary ml-1">Max image size 1MB</p>
 
                     <div class="position-relative form-group">
                         <label for="deliveryFees" class="">Delivery fees</label
@@ -108,7 +111,8 @@ export default {
     data() {
         return {
             info: {},
-            alert: false
+            alert: false,
+            images: null
         };
     },
 
@@ -130,7 +134,6 @@ export default {
             fs.append(
                 "data",
                 JSON.stringify({
-                    baseUrl: this.info.baseUrl,
                     deliveryFees: this.info.deliveryFees,
                     email: this.info.email,
                     facebook: this.info.facebook,
@@ -150,6 +153,15 @@ export default {
                 .then(res => {
                     this.alert = true;
                 });
+        },
+        Filevalidation(e) {
+            console.log("e", e);
+            for (let i of e) {
+                if (i.size > 1000000) {
+                    alert("Max image size 1MB");
+                    this.images = [];
+                }
+            }
         }
     }
 };

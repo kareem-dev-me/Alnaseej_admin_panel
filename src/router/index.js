@@ -9,18 +9,12 @@ export default new Router({
     },
     routes: [
 
-        // Dashboards
 
-        {
-            path: '/',
-            name: 'analytics',
-            component: () => import('../DemoPages/Dashboards/Analytics.vue'),
-        },
 
         // Pages
 
         {
-            path: '/login',
+            path: '/',
             name: 'login',
             meta: {layout: 'userpages'},
             component: () => import('../pages/login.vue'),
