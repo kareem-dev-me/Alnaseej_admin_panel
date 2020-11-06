@@ -1,5 +1,13 @@
 <template>
     <div>
+        <div>
+            <b-form-datepicker
+                id="example-datepicker"
+                v-model="date"
+                class="px-2 py-2"
+                @input="select"
+            ></b-form-datepicker>
+        </div>
         <div v-for="order in orders" :key="order.id">
             <b-card
                 border-variant="primary"
@@ -49,31 +57,7 @@
                         </b-card>
                     </div>
                     <hr />
-                    <div>
-                        <p>Delivery boy</p>
-                        <b-card>
-                            <div class="text-center">
-                                <b-img
-                                    width="100%"
-                                    v-if="order.deliveryBoy.imageUrl"
-                                    :src="order.deliveryBoy.imageUrl"
-                                    alt="Delivery boy image"
-                                    fluid
-                                ></b-img>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    {{ order.deliveryBoy.fullName }}
-                                </h5>
-                                <h6 class="card-subtitle">
-                                    {{ order.deliveryBoy.email }} |
-                                    {{ order.deliveryBoy.phone }}
-                                </h6>
-                                <br />
-                            </div>
-                        </b-card>
-                    </div>
-                    <hr />
+
                     <div>
                         <p>Cart item list</p>
                         <b-card
@@ -143,6 +127,9 @@
                 </b-card-text>
             </b-card>
         </div>
+        <div class="text-center" v-if="orders.length == 0">
+            No orders in this day
+        </div>
     </div>
 </template>
 
@@ -150,20 +137,22 @@
 export default {
     data() {
         return {
+            date: null,
             orders: []
         };
     },
-    async mounted() {
-        await this.$http
-            .get("/admin/activeOrders?size=100", {
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem("token")}`
-                }
-            })
-            .then(res => {
-                this.orders = res.data.content;
-                console.log("mounted -> res", res);
-            });
+    methods: {
+        async select(e) {
+            await this.$http
+                .get(`/admin/order/${e}`, {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("token")}`
+                    }
+                })
+                .then(res => {
+                    this.orders = res.data.content || [];
+                });
+        }
     }
 };
 </script>

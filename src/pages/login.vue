@@ -83,9 +83,8 @@ export default {
                     password: this.password
                 })
                 .then(res => {
-                    console.log("login -> res", res);
-                    // localStorage.setItem("token", res.data.jwt);
-                    // this.$router.replace("/");
+                    localStorage.setItem("token", res.data.jwt);
+                    this.$router.replace("/users");
                 });
         }
     }

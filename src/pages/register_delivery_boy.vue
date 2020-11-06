@@ -1,9 +1,16 @@
 <template>
     <div>
+        <b-alert
+            v-model="alert"
+            :variant="err ? 'danger' : 'success'"
+            dismissible
+        >
+            {{ err || "Created" }}
+        </b-alert>
         <div class="main-card mb-3 card">
             <div class="card-body">
                 <h5 class="card-title">Register Delivery Boy</h5>
-                <form class="" @submit.prevent="register">
+                <form class="" @submit.prevent="register" ref="form">
                     <div class="form-row">
                         <div class="col-md-6">
                             <div class="position-relative form-group">
@@ -30,6 +37,14 @@
                             </div>
                         </div>
                     </div>
+                    <label for="image" class="">Image</label>
+
+                    <b-form-file
+                        id="image"
+                        placeholder="Choose a image"
+                        drop-placeholder="Drop image here..."
+                        name="image"
+                    ></b-form-file>
                     <div class="position-relative form-group">
                         <label for="phone" class="">Phone</label
                         ><input
@@ -65,31 +80,38 @@ export default {
             email: null,
             password: null,
             full_name: null,
-            phone: null
+            phone: null,
+            alert: false,
+            err: null
         };
     },
     methods: {
         async register() {
+            const fs = new FormData(this.$refs.form);
+            fs.append(
+                "data",
+                JSON.stringify({
+                    email: this.email,
+                    password: this.password,
+                    phone: this.phone,
+                    fullName: this.full_name,
+                    role: "ROLE_DELIVERY_BOY"
+                })
+            );
+
             await this.$http
-                .post(
-                    "/admin/register/deliveryBoy",
-                    {
-                        email: this.email,
-                        password: this.password,
-                        phone: this.phone,
-                        fullName: this.full_name,
-                        role: "ROLE_DELIVERY_BOY"
-                    },
-                    {
-                        headers: {
-                            Authorization: `Bearer ${localStorage.getItem(
-                                "token"
-                            )}`
-                        }
+                .post("/admin/register/deliveryBoy", fs, {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("token")}`
                     }
-                )
+                })
                 .then(res => {
-                    console.log("mounted -> res", res);
+                    this.alert = true;
+                    this.err = null;
+                })
+                .catch(error => {
+                    this.err = error.response.data.errors[0].message;
+                    this.alert = true;
                 });
         }
     }

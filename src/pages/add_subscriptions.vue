@@ -1,34 +1,21 @@
 <template>
     <div>
+        <b-alert v-model="alert" variant="success" dismissible>
+            Created
+        </b-alert>
         <div class="main-card mb-3 card">
             <div class="card-body">
                 <h5 class="card-title">Add Subscription</h5>
                 <form class="" @submit.prevent="add_subscription">
-                    <div class="form-row">
-                        <div class="col-md-6">
-                            <div class="position-relative form-group">
-                                <label for="id" class="">ID</label
-                                ><input
-                                    id="id"
-                                    v-model="id"
-                                    placeholder="ID"
-                                    type="number"
-                                    class="form-control"
-                                />
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="position-relative form-group">
-                                <label for="credit" class="">credit</label
-                                ><input
-                                    id="credit"
-                                    v-model="credit"
-                                    placeholder="Credit"
-                                    type="number"
-                                    class="form-control"
-                                />
-                            </div>
-                        </div>
+                    <div class="position-relative form-group">
+                        <label for="credit" class="">credit</label
+                        ><input
+                            id="credit"
+                            v-model="credit"
+                            placeholder="Credit"
+                            type="number"
+                            class="form-control"
+                        />
                     </div>
 
                     <div class="position-relative form-group">
@@ -70,7 +57,8 @@ export default {
             id: null,
             credit: null,
             subscriptionService: null,
-            subscriptionServiceAR: null
+            subscriptionServiceAR: null,
+            alert: false
         };
     },
     methods: {
@@ -80,7 +68,6 @@ export default {
                     "/admin/monthlySubscription/add",
                     {
                         credit: this.credit,
-                        id: this.id,
                         subscriptionService: this.subscriptionService,
                         subscriptionServiceAR: this.subscriptionServiceAR
                     },
@@ -93,7 +80,7 @@ export default {
                     }
                 )
                 .then(res => {
-                    console.log("mounted -> res", res);
+                    this.alert = true;
                 });
         }
     }

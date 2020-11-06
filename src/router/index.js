@@ -21,210 +21,242 @@ export default new Router({
 
         {
             path: '/login',
-            name: 'login-boxed',
+            name: 'login',
             meta: {layout: 'userpages'},
             component: () => import('../pages/login.vue'),
+            beforeEnter(to, from, next) {
+                if (!localStorage.getItem('token')) {
+                  next()
+                } else {
+                  next({
+                    name: "users" 
+                  });
+                }}
+            
+        },
+        {
+            path: '/logout',
+            name: 'logout',
+            component: () => import('../pages/logout.vue'),
+            
+        },
+        // services
+        {
+            path: '/manage_services',
+            name: 'manage_services',
+            component: () => import('../pages/manage_services.vue'),
+            
+        },
+        {
+            path: '/add_service',
+            name: 'add_service',
+            component: () => import('../pages/add_service.vue'),
+            
+        },
+        // products
+        {
+            path: '/products/:id',
+            component: () => import('../pages/products.vue'),
+            
+        },
+        {
+            path: '/add_product/:id',
+            component: () => import('../pages/add_product.vue'),
+            
         },
         // users
         {
             path: '/users',
             name: 'users',
             component: () => import('../pages/users.vue'),
+            beforeEnter(to, from, next) {
+                if (localStorage.getItem('token')) {
+                  next()
+                } else {
+                  next({
+                    name: "login" 
+                  });
+                }}
         },
         // payment
         {
             path: '/payment',
             name: 'payment',
             component: () => import('../pages/payment.vue'),
+            beforeEnter(to, from, next) {
+                if (localStorage.getItem('token')) {
+                  next()
+                } else {
+                  next({
+                    name: "login" 
+                  });
+                }}
+
         },
         // delivery boys
         {
             path: '/delivery_boys',
             name: 'delivery_boys',
             component: () => import('../pages/delivery_boys.vue'),
+            beforeEnter(to, from, next) {
+                if (localStorage.getItem('token')) {
+                  next()
+                } else {
+                  next({
+                    name: "login" 
+                  });
+                }}
         },
         {
             path: '/register_delivery_boy',
             name: 'register_delivery_boy',
             component: () => import('../pages/register_delivery_boy.vue'),
+            beforeEnter(to, from, next) {
+                if (localStorage.getItem('token')) {
+                  next()
+                } else {
+                  next({
+                    name: "login" 
+                  });
+                }}
         },
         // info
         {
             path: '/info',
             name: 'info',
             component: () => import('../pages/info.vue'),
+            beforeEnter(to, from, next) {
+                if (localStorage.getItem('token')) {
+                  next()
+                } else {
+                  next({
+                    name: "login" 
+                  });
+                }}
         },
-        {
-            path: '/set_info',
-            name: 'set_info',
-            component: () => import('../pages/set_info.vue'),
-        },
+        
         {
             path: '/edit_info',
             name: 'edit_info',
             component: () => import('../pages/edit_info.vue'),
+            beforeEnter(to, from, next) {
+                if (localStorage.getItem('token')) {
+                  next()
+                } else {
+                  next({
+                    name: "login" 
+                  });
+                }}
         },
         // subscriptions
         {
             path: '/subscriptions',
             name: 'subscriptions',
             component: () => import('../pages/subscriptions.vue'),
+            beforeEnter(to, from, next) {
+                if (localStorage.getItem('token')) {
+                  next()
+                } else {
+                  next({
+                    name: "login" 
+                  });
+                }}
         },
         {
             path: '/add_subscriptions',
             name: 'add_subscriptions',
             component: () => import('../pages/add_subscriptions.vue'),
+            beforeEnter(to, from, next) {
+                if (localStorage.getItem('token')) {
+                  next()
+                } else {
+                  next({
+                    name: "login" 
+                  });
+                }}
         },
         // orders
         {
             path: '/active_orders',
             name: 'active_orders',
             component: () => import('../pages/active_orders.vue'),
+            beforeEnter(to, from, next) {
+                if (localStorage.getItem('token')) {
+                  next()
+                } else {
+                  next({
+                    name: "login" 
+                  });
+                }}
+        },
+        {
+            path: '/delivered_orders',
+            name: 'delivered_orders',
+            component: () => import('../pages/delivered_orders.vue'),
+            beforeEnter(to, from, next) {
+                if (localStorage.getItem('token')) {
+                  next()
+                } else {
+                  next({
+                    name: "login" 
+                  });
+                }}
+        },
+        {
+            path: '/assign_order',
+            name: 'assign_order',
+            component: () => import('../pages/assign_order.vue'),
+            beforeEnter(to, from, next) {
+                if (localStorage.getItem('token')) {
+                  next()
+                } else {
+                  next({
+                    name: "login" 
+                  });
+                }}
+        },
+        {
+            path: '/orders_in_day',
+            name: 'orders_in_day',
+            component: () => import('../pages/orders_in_day.vue'),
+            beforeEnter(to, from, next) {
+                if (localStorage.getItem('token')) {
+                  next()
+                } else {
+                  next({
+                    name: "login" 
+                  });
+                }}
         },
         // coupons
         {
             path: '/coupons',
             name: 'coupons',
             component: () => import('../pages/coupons.vue'),
+            beforeEnter(to, from, next) {
+                if (localStorage.getItem('token')) {
+                  next()
+                } else {
+                  next({
+                    name: "login" 
+                  });
+                }}
         },
         {
             path: '/add_coupon',
             name: 'add_coupon',
             component: () => import('../pages/add_coupon.vue'),
+            beforeEnter(to, from, next) {
+                if (localStorage.getItem('token')) {
+                  next()
+                } else {
+                  next({
+                    name: "login" 
+                  });
+                }}
         },
-        {
-            path: '/pages/register-boxed',
-            name: 'register-boxed',
-            meta: {layout: 'userpages'},
-            component: () => import('../DemoPages/UserPages/RegisterBoxed.vue'),
-        },
-        {
-            path: '/pages/forgot-password-boxed',
-            name: 'forgot-password-boxed',
-            meta: {layout: 'userpages'},
-            component: () => import('../DemoPages/UserPages/ForgotPasswordBoxed.vue'),
-        },
+        
 
-        // Elements
-
-        {
-            path: '/elements/buttons-standard',
-            name: 'buttons-standard',
-            component: () => import('../DemoPages/Elements/Buttons/Standard.vue'),
-        },
-        {
-            path: '/elements/dropdowns',
-            name: 'dropdowns',
-            component: () => import('../DemoPages/Elements/Dropdowns.vue'),
-        },
-        {
-            path: '/elements/icons',
-            name: 'icons',
-            component: () => import('../DemoPages/Elements/Icons.vue'),
-        },
-        {
-            path: '/elements/badges-labels',
-            name: 'badges',
-            component: () => import('../DemoPages/Elements/Badges.vue'),
-        },
-        {
-            path: '/elements/cards',
-            name: 'cards',
-            component: () => import('../DemoPages/Elements/Cards.vue'),
-        },
-        {
-            path: '/elements/list-group',
-            name: 'list-group',
-            component: () => import('../DemoPages/Elements/ListGroups.vue'),
-        },
-        {
-            path: '/elements/timelines',
-            name: 'timeline',
-            component: () => import('../DemoPages/Elements/Timeline.vue'),
-        },
-        {
-            path: '/elements/utilities',
-            name: 'utilities',
-            component: () => import('../DemoPages/Elements/Utilities.vue'),
-        },
-
-        // Components
-
-        {
-            path: '/components/tabs',
-            name: 'tabs',
-            component: () => import('../DemoPages/Components/Tabs.vue'),
-        },
-        {
-            path: '/components/accordions',
-            name: 'accordions',
-            component: () => import('../DemoPages/Components/Accordions.vue'),
-        },
-        {
-            path: '/components/modals',
-            name: 'modals',
-            component: () => import('../DemoPages/Components/Modals.vue'),
-        },
-        {
-            path: '/components/progress-bar',
-            name: 'progress-bar',
-            component: () => import('../DemoPages/Components/ProgressBar.vue'),
-        },
-        {
-            path: '/components/tooltips-popovers',
-            name: 'tooltips-popovers',
-            component: () => import('../DemoPages/Components/TooltipsPopovers.vue'),
-        },
-        {
-            path: '/components/carousel',
-            name: 'carousel',
-            component: () => import('../DemoPages/Components/Carousel.vue'),
-        },
-        {
-            path: '/components/pagination',
-            name: 'pagination',
-            component: () => import('../DemoPages/Components/Pagination.vue'),
-        },
-        {
-            path: '/components/maps',
-            name: 'maps',
-            component: () => import('../DemoPages/Components/Maps.vue'),
-        },
-
-        // Tables
-
-        {
-            path: '/tables/regular-tables',
-            name: 'regular-tables',
-            component: () => import('../DemoPages/Tables/RegularTables.vue'),
-        },
-
-        // Dashboard Widgets
-
-        {
-            path: '/widgets/chart-boxes-3',
-            name: 'chart-boxes-3',
-            component: () => import('../DemoPages/Widgets/ChartBoxes3.vue'),
-        },
-
-        // Forms
-
-        {
-            path: '/forms/controls',
-            name: 'controls',
-            component: () => import('../DemoPages/Forms/Elements/Controls.vue'),
-        },
-        {
-            path: '/forms/layouts',
-            name: 'layouts',
-            component: () => import('../DemoPages/Forms/Elements/Layouts.vue'),
-        },
-        // Charts
-
-        {
-            path: '/charts/chartjs',
-            name: 'chartjs',
-            component: () => import('../DemoPages/Charts/Chartjs.vue'),
-        },
+    
     ]
 })

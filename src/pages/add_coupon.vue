@@ -1,34 +1,21 @@
 <template>
     <div>
+        <b-alert v-model="alert" variant="success" dismissible>
+            Created
+        </b-alert>
         <div class="main-card mb-3 card">
             <div class="card-body">
                 <h5 class="card-title">Add Subscription</h5>
                 <form class="" @submit.prevent="add_coupon">
-                    <div class="form-row">
-                        <div class="col-md-6">
-                            <div class="position-relative form-group">
-                                <label for="id" class="">ID</label
-                                ><input
-                                    id="id"
-                                    v-model="id"
-                                    placeholder="ID"
-                                    type="number"
-                                    class="form-control"
-                                />
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="position-relative form-group">
-                                <label for="value" class="">Value</label
-                                ><input
-                                    id="value"
-                                    v-model="value"
-                                    placeholder="value"
-                                    type="number"
-                                    class="form-control"
-                                />
-                            </div>
-                        </div>
+                    <div class="position-relative form-group">
+                        <label for="value" class="">Value</label
+                        ><input
+                            id="value"
+                            v-model="value"
+                            placeholder="value"
+                            type="number"
+                            class="form-control"
+                        />
                     </div>
 
                     <div class="position-relative form-group">
@@ -65,17 +52,17 @@ export default {
             id: null,
             value: null,
             code: null,
-            expirationDate: ""
+            expirationDate: "",
+            alert: false
         };
     },
     methods: {
         async add_coupon() {
             await this.$http
                 .post(
-                    "/admin/monthlySubscription/add",
+                    "/admin/coupon/add",
                     {
                         code: this.code,
-                        id: this.id,
                         expirationDate: this.expirationDate,
                         value: this.value
                     },
@@ -88,6 +75,7 @@ export default {
                     }
                 )
                 .then(res => {
+                    this.alert = true;
                     console.log("mounted -> res", res);
                 });
         }

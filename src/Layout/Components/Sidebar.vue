@@ -20,7 +20,11 @@
             </div>
         </div>
         <div class="app-sidebar-content">
-            <VuePerfectScrollbar class="app-sidebar-scroll" v-once>
+            <VuePerfectScrollbar
+                class="app-sidebar-scroll"
+                v-once
+                v-if="menu.length != 0"
+            >
                 <sidebar-menu showOneChild :menu="menu" />
             </VuePerfectScrollbar>
         </div>
@@ -40,274 +44,20 @@ export default {
         return {
             isOpen: false,
             sidebarActive: false,
-
-            menu: [
-                {
-                    header: true,
-                    title: "Main"
-                },
-                {
-                    title: "Lundry services",
-                    icon: "pe-7s-tools",
-                    child: [
-                        {
-                            href: "",
-                            title: "Analytics"
-                        }
-                    ]
-                },
-                {
-                    title: " Orders",
-                    icon: "pe-7s-plugin",
-                    child: [
-                        {
-                            href: "",
-                            title: "Assign orders"
-                        },
-                        {
-                            href: "/active_orders",
-                            title: "List active orders"
-                        }
-                    ]
-                },
-                {
-                    title: "Subscriptions",
-                    icon: "pe-7s-albums",
-                    child: [
-                        {
-                            href: "/subscriptions",
-                            title: "List all subscriptions"
-                        },
-                        {
-                            href: "/add_subscriptions",
-                            title: "Add new subscription"
-                        }
-                    ]
-                },
-
-                {
-                    title: " Application info",
-                    icon: "pe-7s-config",
-                    child: [
-                        {
-                            href: "/info",
-                            title: "Show application info"
-                        },
-                        {
-                            href: "/set_info",
-                            title: "Set application info"
-                        },
-                        {
-                            href: "/edit_info",
-                            title: "Edit application info"
-                        }
-                    ]
-                },
-                {
-                    header: true,
-                    title: "Users"
-                },
-                {
-                    title: "Users",
-                    icon: "pe-7s-users",
-                    child: [
-                        {
-                            href: "/users",
-                            title: "List all users"
-                        },
-                        {
-                            href: "",
-                            title: "Activate user"
-                        },
-                        {
-                            href: "",
-                            title: "Deactivate user"
-                        }
-                    ]
-                },
-                {
-                    title: "Delivary boys",
-                    icon: "pe-7s-id",
-                    child: [
-                        {
-                            href: "/delivery_boys",
-                            title: "List all delivery boys"
-                        },
-                        {
-                            href: "/register_delivery_boy",
-                            title: "Register a new delivery boy"
-                        }
-                    ]
-                },
-
-                {
-                    header: true,
-                    title: "Money"
-                },
-                {
-                    title: "Payment Methods",
-                    icon: "pe-7s-credit",
-                    href: "/payment"
-                },
-                {
-                    title: "Coupons",
-                    icon: "pe-7s-cash",
-                    child: [
-                        {
-                            href: "/coupons",
-                            title: "All coupons"
-                        },
-                        {
-                            href: "/add_coupon",
-                            title: "Add coupon"
-                        }
-                    ]
-                },
-                {
-                    header: true,
-                    title: "Logout"
-                },
-                {
-                    title: "Logout",
-                    icon: "pe-7s-power",
-                    href: ""
-                },
-                {
-                    header: true,
-                    title: "UI Components"
-                },
-                {
-                    icon: "pe-7s-diamond",
-                    title: "Elements",
-                    child: [
-                        {
-                            title: "Buttons",
-                            child: [
-                                {
-                                    title: "Standard",
-                                    href: "/elements/buttons-standard"
-                                }
-                            ]
-                        },
-                        {
-                            title: "Dropdowns",
-                            href: "/elements/dropdowns"
-                        },
-                        {
-                            title: "Icons",
-                            href: "/elements/icons"
-                        },
-                        {
-                            title: "Badges",
-                            href: "/elements/badges-labels"
-                        },
-                        {
-                            title: "Cards",
-                            href: "/elements/cards"
-                        },
-                        {
-                            title: "List Groups",
-                            href: "/elements/list-group"
-                        },
-                        {
-                            title: "Timeline",
-                            href: "/elements/timelines"
-                        },
-                        {
-                            title: "Utilities",
-                            href: "/elements/utilities"
-                        }
-                    ]
-                },
-                {
-                    icon: "pe-7s-car",
-                    title: "Components",
-                    child: [
-                        {
-                            title: "Tabs",
-                            href: "/components/tabs"
-                        },
-                        {
-                            title: "Accordions",
-                            href: "/components/accordions"
-                        },
-                        {
-                            title: "Modals",
-                            href: "/components/modals"
-                        },
-                        {
-                            title: "Progress Bar",
-                            href: "/components/progress-bar"
-                        },
-                        {
-                            title: "Tooltips & Popovers",
-                            href: "/components/tooltips-popovers"
-                        },
-                        {
-                            title: "Carousel",
-                            href: "/components/carousel"
-                        },
-                        {
-                            title: "Pagination",
-                            href: "/components/pagination"
-                        },
-                        {
-                            title: "Maps",
-                            href: "/components/maps"
-                        }
-                    ]
-                },
-                {
-                    icon: "pe-7s-display2",
-                    title: "Tables",
-                    child: [
-                        {
-                            title: "Regular Tables",
-                            href: "/tables/regular-tables"
-                        }
-                    ]
-                },
-                {
-                    header: true,
-                    title: "Dashboard Boxes"
-                },
-                {
-                    icon: "pe-7s-graph2",
-                    title: "Chart Boxes",
-                    href: "/widgets/chart-boxes-3"
-                },
-                {
-                    header: true,
-                    title: "Forms"
-                },
-                {
-                    icon: "pe-7s-light",
-                    title: "Elements",
-                    child: [
-                        {
-                            title: "Controls",
-                            href: "/forms/controls"
-                        },
-                        {
-                            title: "Layouts",
-                            href: "/forms/layouts"
-                        }
-                    ]
-                },
-                {
-                    header: true,
-                    title: "Charts"
-                },
-                {
-                    icon: "pe-7s-graph2",
-                    title: "ChartJS",
-                    href: "/charts/chartjs"
-                }
-            ],
             collapsed: true,
-
+            menu: [],
             windowWidth: 0
         };
+    },
+    computed: {
+        menu_v: {
+            get() {
+                return [];
+            },
+            set(newVal) {
+                this.menu = newVal;
+            }
+        }
     },
     props: {
         sidebarbg: String
@@ -349,13 +99,153 @@ export default {
             }
         }
     },
-    mounted() {
+    async mounted() {
         this.$nextTick(function() {
             window.addEventListener("resize", this.getWindowWidth);
 
             //Init
             this.getWindowWidth();
         });
+        await this.$http
+            .get("/admin/laundryServices", {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem("token")}`
+                }
+            })
+            .then(res => {
+                // this.laundry_services = res.data.map(item => {
+                //     return { title: item.title, href: "" };
+                // });
+                const services = res.data.map(item => {
+                    return { title: item.title, href: `/products/${item.id}` };
+                });
+                services.push({
+                    title: "Manage services",
+                    href: "/manage_services"
+                });
+                this.menu = [
+                    {
+                        header: true,
+                        title: "Main"
+                    },
+                    {
+                        title: "Laundry services",
+                        icon: "pe-7s-tools",
+                        child: services
+                    },
+                    {
+                        title: " Orders",
+                        icon: "pe-7s-plugin",
+                        child: [
+                            {
+                                href: "assign_order",
+                                title: "Assign orders"
+                            },
+                            {
+                                href: "/active_orders",
+                                title: "List active orders"
+                            },
+                            {
+                                href: "/orders_in_day",
+                                title: "List orders in day"
+                            },
+                            {
+                                href: "/delivered_orders",
+                                title: "Delivered orders"
+                            }
+                        ]
+                    },
+                    {
+                        title: "Subscriptions",
+                        icon: "pe-7s-albums",
+                        child: [
+                            {
+                                href: "/subscriptions",
+                                title: "List all subscriptions"
+                            },
+                            {
+                                href: "/add_subscriptions",
+                                title: "Add new subscription"
+                            }
+                        ]
+                    },
+
+                    {
+                        title: " Application info",
+                        icon: "pe-7s-config",
+                        child: [
+                            {
+                                href: "/info",
+                                title: "Show application info"
+                            },
+
+                            {
+                                href: "/edit_info",
+                                title: "Edit application info"
+                            }
+                        ]
+                    },
+                    {
+                        header: true,
+                        title: "Users"
+                    },
+                    {
+                        title: "Users",
+                        icon: "pe-7s-users",
+                        href: "/users"
+                    },
+                    {
+                        title: "Delivary boys",
+                        icon: "pe-7s-id",
+                        child: [
+                            {
+                                href: "/delivery_boys",
+                                title: "List all delivery boys"
+                            },
+                            {
+                                href: "/register_delivery_boy",
+                                title: "Register a new delivery boy"
+                            }
+                        ]
+                    },
+
+                    {
+                        header: true,
+                        title: "Money"
+                    },
+                    {
+                        title: "Payment Methods",
+                        icon: "pe-7s-credit",
+                        href: "/payment"
+                    },
+                    {
+                        title: "Coupons",
+                        icon: "pe-7s-cash",
+                        child: [
+                            {
+                                href: "/coupons",
+                                title: "All coupons"
+                            },
+                            {
+                                href: "/add_coupon",
+                                title: "Add coupon"
+                            }
+                        ]
+                    },
+                    {
+                        header: true,
+                        title: "Logout"
+                    },
+                    {
+                        title: "Logout",
+                        icon: "pe-7s-power",
+                        href: "/logout"
+                    }
+                ];
+
+                console.log(this.laundry_services);
+                console.log("mounted -> res", res);
+            });
     },
 
     beforeDestroy() {

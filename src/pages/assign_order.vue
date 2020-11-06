@@ -50,31 +50,6 @@
                     </div>
                     <hr />
                     <div>
-                        <p>Delivery boy</p>
-                        <b-card>
-                            <div class="text-center">
-                                <b-img
-                                    width="100%"
-                                    v-if="order.deliveryBoy.imageUrl"
-                                    :src="order.deliveryBoy.imageUrl"
-                                    alt="Delivery boy image"
-                                    fluid
-                                ></b-img>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    {{ order.deliveryBoy.fullName }}
-                                </h5>
-                                <h6 class="card-subtitle">
-                                    {{ order.deliveryBoy.email }} |
-                                    {{ order.deliveryBoy.phone }}
-                                </h6>
-                                <br />
-                            </div>
-                        </b-card>
-                    </div>
-                    <hr />
-                    <div>
                         <p>Cart item list</p>
                         <b-card
                             v-for="product in order.cartItemList"
@@ -140,9 +115,26 @@
                         </p>
                     </div>
                     <hr />
+                    <b-button
+                        variant="primary"
+                        block
+                        v-b-modal.modal
+                        @click="selected_order = order.id"
+                        >Assign delivery boy</b-button
+                    >
                 </b-card-text>
             </b-card>
         </div>
+        <b-modal id="modal" title="Assign delivery boy" hide-footer>
+            <b-form-select
+                v-model="delivery_boy"
+                :options="users"
+                label-field="Please select delivery boy"
+            ></b-form-select>
+            <b-button variant="primary" block class="my-3" @click="assign"
+                >Assign</b-button
+            >
+        </b-modal>
     </div>
 </template>
 
@@ -150,20 +142,59 @@
 export default {
     data() {
         return {
-            orders: []
+            users: [],
+            orders: [],
+            delivery_boy: null,
+            selected_order: null
         };
     },
     async mounted() {
         await this.$http
-            .get("/admin/activeOrders?size=100", {
+            .get("/admin/newOrders", {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem("token")}`
+                }
+            })
+            .then(res => {
+                this.orders = res.data.content;
+                console.log("mounted -> res", res.data);
+            });
+        await this.$http
+            .get("/admin/deliveryBoys", {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`
                 }
             })
             .then(res => {
-                this.orders = res.data.content;
                 console.log("mounted -> res", res);
+                this.users = res.data.content.map(item => {
+                    return { text: item.fullName, value: item.id };
+                });
+                this.users.unshift({
+                    value: null,
+                    text: "Please select delivery boy"
+                });
             });
+    },
+    methods: {
+        async assign() {
+            await this.$http
+                .post(
+                    `/admin/assign/order/${this.selected_order}/deliveryBoy/${this.delivery_boy}`,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${localStorage.getItem(
+                                "token"
+                            )}`
+                        }
+                    }
+                )
+                .then(res => {
+                    console.log("assign -> res", res);
+                    alert("Assigned successfully");
+                    this.selected_order = false;
+                });
+        }
     }
 };
 </script>

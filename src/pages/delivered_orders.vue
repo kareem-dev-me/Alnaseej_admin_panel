@@ -155,7 +155,7 @@ export default {
     },
     async mounted() {
         await this.$http
-            .get("/admin/activeOrders?size=100", {
+            .get("/admin/deliveredOrders?size=100", {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`
                 }
