@@ -192,7 +192,16 @@ export default {
                     {
                         title: "Users",
                         icon: "pe-7s-users",
-                        href: "/users"
+                        child: [
+                            {
+                                href: "/users",
+                                title: "List all users"
+                            },
+                            {
+                                href: "/add_user",
+                                title: "Register a new user"
+                            }
+                        ]
                     },
                     {
                         title: "Delivary boys",

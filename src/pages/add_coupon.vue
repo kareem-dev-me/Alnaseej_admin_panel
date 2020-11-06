@@ -5,7 +5,7 @@
         </b-alert>
         <div class="main-card mb-3 card">
             <div class="card-body">
-                <h5 class="card-title">Add Subscription</h5>
+                <h5 class="card-title">Add Coupon</h5>
                 <form class="" @submit.prevent="add_coupon">
                     <div class="position-relative form-group">
                         <label for="value" class="">Value</label

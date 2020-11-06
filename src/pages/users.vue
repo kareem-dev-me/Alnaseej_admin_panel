@@ -6,6 +6,7 @@
         <b-alert v-model="deactive_alert" variant="danger" dismissible>
             Deactivated, reload the page
         </b-alert>
+
         <div class="main-card mb-3 card" v-for="user in users" :key="user.id">
             <div class="text-center">
                 <b-img

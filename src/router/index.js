@@ -72,6 +72,19 @@ export default new Router({
                   });
                 }}
         },
+        {
+            path: '/add_user',
+            name: 'add_user',
+            component: () => import('../pages/add_user.vue'),
+            beforeEnter(to, from, next) {
+                if (localStorage.getItem('token')) {
+                  next()
+                } else {
+                  next({
+                    name: "login" 
+                  });
+                }}
+        },
         // payment
         {
             path: '/payment',
