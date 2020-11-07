@@ -79,7 +79,7 @@ export default {
 
             this.windowWidth = document.documentElement.clientWidth;
 
-            if (this.windowWidth > "992") {
+            if (this.windowWidth > "1") {
                 if (add === "add") {
                     el.classList.add(className);
                 } else {
@@ -126,7 +126,8 @@ export default {
                 this.menu = [
                     {
                         header: true,
-                        title: "الرئيسية"
+                        title: "الرئيسية",
+                        hiddenOnCollapse: true
                     },
                     {
                         title: "خدمات المغسلة",
@@ -187,7 +188,8 @@ export default {
                     },
                     {
                         header: true,
-                        title: "المستخدمين"
+                        title: "المستخدمين",
+                        hiddenOnCollapse: true
                     },
                     {
                         title: "المستخدمين",
@@ -220,7 +222,8 @@ export default {
 
                     {
                         header: true,
-                        title: "الاموال"
+                        title: "الاموال",
+                        hiddenOnCollapse: true
                     },
                     {
                         title: "وسائل الدفع",
@@ -243,7 +246,8 @@ export default {
                     },
                     {
                         header: true,
-                        title: "تسجيل الخروج"
+                        title: "تسجيل الخروج",
+                        hiddenOnCollapse: true
                     },
                     {
                         title: "الخروج",

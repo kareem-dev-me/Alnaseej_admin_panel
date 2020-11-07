@@ -23,7 +23,7 @@ export default new Router({
                   next()
                 } else {
                   next({
-                    name: "users" 
+                    name: "info" 
                   });
                 }}
             

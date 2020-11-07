@@ -15,14 +15,14 @@
   }
 
   .app-sidebar {
-    transform: translateX(-$app-sidebar-width-collapsed);
+    // transform: translateX(-$app-sidebar-width-collapsed);
     position: fixed;
     z-index: 20;
     box-shadow: 0 0 0 0 transparent;
     padding-top: $app-header-height;
 
     .app-header__logo {
-      display: none;
+      display: flex;
     }
   }
 
