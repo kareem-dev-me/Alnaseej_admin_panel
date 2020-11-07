@@ -12,7 +12,9 @@
   word-wrap: break-word;
   opacity: 0;
 
-  &.show { opacity: $tooltip-opacity; }
+  &.show {
+    opacity: $tooltip-opacity;
+  }
 
   .arrow {
     position: absolute;
@@ -52,8 +54,9 @@
     height: $tooltip-arrow-width;
 
     &::before {
-      right: 0;
-      border-width: ($tooltip-arrow-width / 2) $tooltip-arrow-height ($tooltip-arrow-width / 2) 0;
+      left: 0;
+      border-width: ($tooltip-arrow-width / 2) $tooltip-arrow-height
+        ($tooltip-arrow-width / 2) 0;
       border-right-color: $tooltip-arrow-color;
     }
   }
@@ -77,13 +80,14 @@
   padding: 0 $tooltip-arrow-height;
 
   .arrow {
-    right: 0;
+    left: 0;
     width: $tooltip-arrow-height;
     height: $tooltip-arrow-width;
 
     &::before {
       left: 0;
-      border-width: ($tooltip-arrow-width / 2) 0 ($tooltip-arrow-width / 2) $tooltip-arrow-height;
+      border-width: ($tooltip-arrow-width / 2) 0 ($tooltip-arrow-width / 2)
+        $tooltip-arrow-height;
       border-left-color: $tooltip-arrow-color;
     }
   }

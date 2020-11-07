@@ -1,20 +1,20 @@
 <template>
     <div>
         <b-alert v-model="alert" variant="success" dismissible>
-            Updated
+            تم التحديث
         </b-alert>
         <div class="main-card mb-3 card">
             <div class="card-body">
-                <h5 class="card-title">Set App Info</h5>
+                <h5 class="card-title">تعديل معلومات التطبيق</h5>
                 <form class="" @submit.prevent="edit_app_info" ref="form">
                     <div class="form-row">
                         <div class="col-md-6">
                             <div class="position-relative form-group">
-                                <label for="email" class="">Email</label
+                                <label for="email" class="">الايميل</label
                                 ><input
                                     v-model="info.email"
                                     id="email"
-                                    placeholder="Delivery boy email"
+                                    placeholder="الايميل"
                                     type="email"
                                     class="form-control"
                                 />
@@ -22,11 +22,11 @@
                         </div>
                         <div class="col-md-6">
                             <div class="position-relative form-group">
-                                <label for="phoneNumber" class="">Phone</label
+                                <label for="phoneNumber" class="">الجوال</label
                                 ><input
                                     id="phoneNumber"
                                     v-model="info.phoneNumber"
-                                    placeholder="Phone number"
+                                    placeholder="الجوال"
                                     type="text"
                                     class="form-control"
                                 />
@@ -34,32 +34,32 @@
                         </div>
                     </div>
 
-                    <label for="image" class="">Images</label>
+                    <label for="image" class="">الصور</label>
 
                     <b-form-file
                         id="image"
-                        placeholder="Choose a image"
-                        drop-placeholder="Drop image here..."
+                        placeholder="اختر صورة"
+                        drop-placeholder="اسقط الصورة هنا"
                         name="image"
                         multiple
                         @input="Filevalidation"
                         v-model="images"
                     ></b-form-file>
-                    <p class="text-primary ml-1">Max image size 1MB</p>
+                    <p class="text-primary mr-1">اقصى مساحة للصورة 1MB</p>
 
                     <div class="position-relative form-group">
-                        <label for="deliveryFees" class="">Delivery fees</label
+                        <label for="deliveryFees" class="">رسوم التوصيل</label
                         ><input
                             id="deliveryFees"
                             v-model="info.deliveryFees"
-                            placeholder="Delivery fees"
+                            placeholder="رسوم التوصيل"
                             type="number"
                             class="form-control"
                         />
                     </div>
 
                     <div class="position-relative form-group">
-                        <label for="facebook" class="">Facebook</label
+                        <label for="facebook" class="">فيسبوك</label
                         ><input
                             id="facebook"
                             v-model="info.facebook"
@@ -69,7 +69,7 @@
                         />
                     </div>
                     <div class="position-relative form-group">
-                        <label for="twitter" class="">Twitter</label
+                        <label for="twitter" class="">تويتر</label
                         ><input
                             id="twitter"
                             v-model="info.twitter"
@@ -79,7 +79,7 @@
                         />
                     </div>
                     <div class="position-relative form-group">
-                        <label for="instagram" class="">Instagram</label
+                        <label for="instagram" class="">انستجرام</label
                         ><input
                             id="instagram"
                             v-model="info.instagram"
@@ -89,7 +89,7 @@
                         />
                     </div>
                     <div class="position-relative form-group">
-                        <label for="snapchat" class="">Snapchat</label
+                        <label for="snapchat" class="">سناب شات</label
                         ><input
                             id="snapchat"
                             v-model="info.snapchat"
@@ -99,7 +99,9 @@
                         />
                     </div>
 
-                    <button class="mt-2 btn btn-primary">Edit app info</button>
+                    <button class="mt-2 btn btn-primary">
+                        تعديل معلومات التذبيق
+                    </button>
                 </form>
             </div>
         </div>

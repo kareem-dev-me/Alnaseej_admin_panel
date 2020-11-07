@@ -1,18 +1,18 @@
 <template>
     <div>
         <b-alert v-model="alert" variant="success" dismissible>
-            Created
+            تمت الاضافة
         </b-alert>
         <div class="main-card mb-3 card">
             <div class="card-body">
-                <h5 class="card-title">Add Subscription</h5>
+                <h5 class="card-title">اضف الاشتراك</h5>
                 <form class="" @submit.prevent="add_subscription">
                     <div class="position-relative form-group">
-                        <label for="credit" class="">credit</label
+                        <label for="credit" class="">الائتمان</label
                         ><input
                             id="credit"
                             v-model="credit"
-                            placeholder="Credit"
+                            placeholder="الائتمان"
                             type="number"
                             class="form-control"
                         />
@@ -20,29 +20,29 @@
 
                     <div class="position-relative form-group">
                         <label for="subscriptionService" class=""
-                            >Subscription service</label
+                            >خدمة الاشتراك</label
                         ><input
                             id="subscriptionService"
                             v-model="subscriptionService"
-                            placeholder="Subscription service"
+                            placeholder="خدمة الاشتراك"
                             type="text"
                             class="form-control"
                         />
                     </div>
                     <div class="position-relative form-group">
                         <label for="subscriptionServiceAR" class=""
-                            >Subscription service arabic</label
+                            >خدمة الاشتراك بالعربية</label
                         ><input
                             id="subscriptionServiceAR"
                             v-model="subscriptionServiceAR"
-                            placeholder="Subscription service arabic"
+                            placeholder="خدمة الاشتراك بالعربية"
                             type="text"
                             class="form-control"
                         />
                     </div>
 
                     <button class="mt-2 btn btn-primary">
-                        Add subscription
+                        اضف الاشتراك
                     </button>
                 </form>
             </div>

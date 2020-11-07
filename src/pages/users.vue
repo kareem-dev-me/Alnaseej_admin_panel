@@ -1,10 +1,10 @@
 <template>
     <div>
         <b-alert v-model="active_alert" variant="success" dismissible>
-            Activated, reload the page
+            تم التفعيل،اعد تحميل الصفحة
         </b-alert>
         <b-alert v-model="deactive_alert" variant="danger" dismissible>
-            Deactivated, reload the page
+            تم التعطيل،اعد تحميل الصفحة
         </b-alert>
 
         <div class="main-card mb-3 card" v-for="user in users" :key="user.id">
@@ -28,14 +28,14 @@
                     v-if="user.enabled == false"
                     @click="active(user.id)"
                 >
-                    Active user
+                    تفعيل
                 </button>
                 <button
                     class="btn btn-danger"
                     v-if="user.enabled == true"
                     @click="deactive(user.id)"
                 >
-                    Deactive user
+                    تعطيل
                 </button>
             </div>
         </div>

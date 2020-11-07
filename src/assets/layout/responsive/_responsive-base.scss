@@ -79,7 +79,7 @@
       }
 
       .header-btn-lg {
-        margin-left: 0.5rem;
+        margin-right: 0.5rem;
         padding: 0 0.5rem;
 
         .hamburger-box {
@@ -241,7 +241,7 @@
       .btn-actions-pane-right {
         margin: ($layout-spacer-x / 2) 0 0;
 
-        .d-inline-block.ml-2 {
+        .d-inline-block.mr-2 {
           width: 100% !important;
           text-align: left;
           margin: 0 !important;
@@ -287,8 +287,8 @@
 
   .body-tabs-line .body-tabs-layout {
     margin-bottom: ($grid-gutter-width / 2);
-    margin-left: (-($grid-gutter-width / 2));
     margin-right: (-($grid-gutter-width / 2));
+    margin-left: (-($grid-gutter-width / 2));
     padding: 0 15px;
   }
 
@@ -354,7 +354,7 @@
       text-align: center;
 
       .avatar-icon-wrapper {
-        margin-right: 0 !important;
+        margin-left: 0 !important;
       }
 
       .menu-header-btn-pane {
@@ -368,7 +368,7 @@
   }
 
   .slick-slider-sm .slick-slider .slick-next {
-    right: ($grid-gutter-width / 2);
+    left: ($grid-gutter-width / 2);
   }
 }
 
@@ -379,7 +379,7 @@
       text-align: center;
 
       .avatar-icon-wrapper {
-        margin-right: 0 !important;
+        margin-left: 0 !important;
       }
 
       .menu-header-btn-pane {

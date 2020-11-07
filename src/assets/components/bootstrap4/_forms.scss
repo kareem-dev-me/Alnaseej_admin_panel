@@ -77,7 +77,6 @@ select.form-control {
   width: 100%;
 }
 
-
 //
 // Labels
 //
@@ -106,7 +105,6 @@ select.form-control {
   line-height: $input-line-height-sm;
 }
 
-
 // Readonly controls as plain text
 //
 // Apply class to a readonly input to make it appear like regular plain
@@ -126,11 +124,10 @@ select.form-control {
 
   &.form-control-sm,
   &.form-control-lg {
-    padding-right: 0;
     padding-left: 0;
+    padding-right: 0;
   }
 }
-
 
 // Form control sizing
 //
@@ -182,7 +179,6 @@ textarea.form-control {
   margin-top: $form-text-margin-top;
 }
 
-
 // Form grid
 //
 // Special replacement for our grid system's `.row` for tighter form layouts.
@@ -190,16 +186,15 @@ textarea.form-control {
 .form-row {
   display: flex;
   flex-wrap: wrap;
-  margin-right: -$form-grid-gutter-width / 2;
   margin-left: -$form-grid-gutter-width / 2;
+  margin-right: -$form-grid-gutter-width / 2;
 
   > .col,
   > [class*="col-"] {
-    padding-right: $form-grid-gutter-width / 2;
     padding-left: $form-grid-gutter-width / 2;
+    padding-right: $form-grid-gutter-width / 2;
   }
 }
-
 
 // Checkboxes and radios
 //
@@ -208,13 +203,13 @@ textarea.form-control {
 .form-check {
   position: relative;
   display: block;
-  padding-left: $form-check-input-gutter;
+  padding-right: $form-check-input-gutter;
 }
 
 .form-check-input {
   position: absolute;
   margin-top: $form-check-input-margin-y;
-  margin-left: -$form-check-input-gutter;
+  margin-right: -$form-check-input-gutter;
 
   &:disabled ~ .form-check-label {
     color: $text-muted;
@@ -228,18 +223,17 @@ textarea.form-control {
 .form-check-inline {
   display: inline-flex;
   align-items: center;
-  padding-left: 0; // Override base .form-check
-  margin-right: $form-check-inline-margin-x;
+  padding-right: 0; // Override base .form-check
+  margin-left: $form-check-inline-margin-x;
 
-  // Undo .form-check-input defaults and add some `margin-right`.
+  // Undo .form-check-input defaults and add some `margin-left`.
   .form-check-input {
     position: static;
     margin-top: 0;
-    margin-right: $form-check-inline-input-margin-x;
-    margin-left: 0;
+    margin-left: $form-check-inline-input-margin-x;
+    margin-right: 0;
   }
 }
-
 
 // Form validation
 //
@@ -314,13 +308,13 @@ textarea.form-control {
       align-items: center;
       justify-content: center;
       width: auto;
-      padding-left: 0;
+      padding-right: 0;
     }
     .form-check-input {
       position: relative;
       margin-top: 0;
-      margin-right: $form-check-input-margin-x;
-      margin-left: 0;
+      margin-left: $form-check-input-margin-x;
+      margin-right: 0;
     }
 
     .custom-control {

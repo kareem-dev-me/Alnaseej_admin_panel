@@ -2,7 +2,7 @@
     <div>
         <router-link :to="`/add_product/${$route.params.id}`">
             <button class="btn btn-success mx-1 my-3">
-                Add product
+                اضف منتج
             </button>
         </router-link>
         <div
@@ -28,7 +28,7 @@
                 <h6 class="card-subtitle font-weight-light text-muted my-3">
                     {{ product.description }}
                 </h6>
-                <p class="font-weight-bold h4">options</p>
+                <p class="font-weight-bold h4">الخيارات</p>
 
                 <div>
                     <b-table
@@ -48,44 +48,44 @@
 
                 <br />
                 <button
-                    class="btn btn-warning mr-1"
+                    class="btn btn-warning ml-1"
                     v-b-modal.modal
                     @click="selected_product = product"
                 >
-                    Edit product
+                    تعديل المنتج
                 </button>
-                <button class="btn btn-danger ml-1" @click="del(product.id)">
-                    Delete product
+                <button class="btn btn-danger mr-1" @click="del(product.id)">
+                    حذف المنتج
                 </button>
             </div>
         </div>
-        <b-modal id="modal" title="Edit" hide-footer>
+        <b-modal id="modal" title="تعديل" hide-footer>
             <form class="" @submit.prevent="edit" ref="form">
-                <label for="image" class="">Image</label>
+                <label for="image" class="">الصورة</label>
 
                 <b-form-file
                     id="image"
-                    placeholder="Choose a image"
-                    drop-placeholder="Drop image here..."
+                    placeholder="اختر صورة"
+                    drop-placeholder="اسقط الصورة هنا"
                     name="image"
                     v-model="image"
                 ></b-form-file>
                 <div class="position-relative form-group">
-                    <label for="description" class="">Description</label
+                    <label for="description" class="">الوصف</label
                     ><input
                         id="description"
                         v-model="selected_product.description"
-                        placeholder="Description"
+                        placeholder="الوصف"
                         class="form-control"
                     />
                 </div>
 
                 <div class="position-relative form-group">
-                    <label for="title" class="">Title</label
+                    <label for="title" class="">العنوان</label
                     ><input
                         id="title"
                         v-model="selected_product.title"
-                        placeholder="Title"
+                        placeholder="العنوان"
                         type="text"
                         class="form-control"
                     />
@@ -104,25 +104,25 @@
                                         1
                                     )
                                 "
-                                >remove option</b-button
-                            >&nbsp; Option #{{ i + 1 }}
+                                >حذف الخيار</b-button
+                            >&nbsp; خيار رقم #{{ i + 1 }}
                         </p>
                         <div class="position-relative form-group">
-                            <label for="title" class="">Title</label
+                            <label for="title" class="">العنوان</label
                             ><input
                                 id="title"
                                 v-model="option.title"
-                                placeholder="Title"
+                                placeholder="العنوان"
                                 type="text"
                                 class="form-control"
                             />
                         </div>
                         <div class="position-relative form-group">
-                            <label for="price" class="">Price</label
+                            <label for="price" class="">السعر</label
                             ><input
                                 id="price"
                                 v-model="option.price"
-                                placeholder="Price"
+                                placeholder="السعر"
                                 type="number"
                                 class="form-control"
                             />
@@ -138,11 +138,11 @@
                             price: null
                         })
                     "
-                    >Add option</b-button
+                    >اضف خيار</b-button
                 >
 
                 <button class="mt-2 btn btn-primary">
-                    Edit product
+                    تعديل المنتج
                 </button>
             </form>
         </b-modal>

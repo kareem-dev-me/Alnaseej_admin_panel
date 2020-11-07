@@ -120,133 +120,133 @@ export default {
                     return { title: item.title, href: `/products/${item.id}` };
                 });
                 services.push({
-                    title: "Manage services",
+                    title: "ادارة الخدمات",
                     href: "/manage_services"
                 });
                 this.menu = [
                     {
                         header: true,
-                        title: "Main"
+                        title: "الرئيسية"
                     },
                     {
-                        title: "Laundry services",
+                        title: "خدمات المغسلة",
                         icon: "pe-7s-tools",
                         child: services
                     },
                     {
-                        title: " Orders",
+                        title: " الطلبات",
                         icon: "pe-7s-plugin",
                         child: [
                             {
                                 href: "assign_order",
-                                title: "Assign orders"
+                                title: "تعين الطلبات"
                             },
                             {
                                 href: "/active_orders",
-                                title: "List active orders"
+                                title: "الطلبات المفعلة"
                             },
                             {
                                 href: "/orders_in_day",
-                                title: "List orders in day"
+                                title: "الطلبات في يوم معين"
                             },
                             {
                                 href: "/delivered_orders",
-                                title: "Delivered orders"
+                                title: "طلبات تم توصيلها"
                             }
                         ]
                     },
                     {
-                        title: "Subscriptions",
+                        title: "الاشتراكات",
                         icon: "pe-7s-albums",
                         child: [
                             {
                                 href: "/subscriptions",
-                                title: "List all subscriptions"
+                                title: "كل الاشتراكات"
                             },
                             {
                                 href: "/add_subscriptions",
-                                title: "Add new subscription"
+                                title: "اضافة اشتراك"
                             }
                         ]
                     },
 
                     {
-                        title: " Application info",
+                        title: "معلومات التطبيق",
                         icon: "pe-7s-config",
                         child: [
                             {
                                 href: "/info",
-                                title: "Show application info"
+                                title: "اظهار معلومات التطبيق"
                             },
 
                             {
                                 href: "/edit_info",
-                                title: "Edit application info"
+                                title: "تعديل معلومات التطبيق"
                             }
                         ]
                     },
                     {
                         header: true,
-                        title: "Users"
+                        title: "المستخدمين"
                     },
                     {
-                        title: "Users",
+                        title: "المستخدمين",
                         icon: "pe-7s-users",
                         child: [
                             {
                                 href: "/users",
-                                title: "List all users"
+                                title: "اظهار المستخدمين"
                             },
                             {
                                 href: "/add_user",
-                                title: "Register a new user"
+                                title: "تسجيل مستخدم جديد"
                             }
                         ]
                     },
                     {
-                        title: "Delivary boys",
+                        title: "فتيان التوصيل",
                         icon: "pe-7s-id",
                         child: [
                             {
                                 href: "/delivery_boys",
-                                title: "List all delivery boys"
+                                title: "اظهار كل فتيان التوصيل"
                             },
                             {
                                 href: "/register_delivery_boy",
-                                title: "Register a new delivery boy"
+                                title: "تسجيل فتى توصيل جديد"
                             }
                         ]
                     },
 
                     {
                         header: true,
-                        title: "Money"
+                        title: "الاموال"
                     },
                     {
-                        title: "Payment Methods",
+                        title: "وسائل الدفع",
                         icon: "pe-7s-credit",
                         href: "/payment"
                     },
                     {
-                        title: "Coupons",
+                        title: "القسائم",
                         icon: "pe-7s-cash",
                         child: [
                             {
                                 href: "/coupons",
-                                title: "All coupons"
+                                title: "كل القسائم"
                             },
                             {
                                 href: "/add_coupon",
-                                title: "Add coupon"
+                                title: "اضافة قسيمة"
                             }
                         ]
                     },
                     {
                         header: true,
-                        title: "Logout"
+                        title: "تسجيل الخروج"
                     },
                     {
-                        title: "Logout",
+                        title: "الخروج",
                         icon: "pe-7s-power",
                         href: "/logout"
                     }

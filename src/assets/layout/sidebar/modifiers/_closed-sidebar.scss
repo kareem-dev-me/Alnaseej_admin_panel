@@ -49,17 +49,17 @@
 
       .vsm-icon {
         left: 50%;
-        margin-left: -20px;
+        margin-right: -20px;
       }
     }
   }
 
   .app-header .app-header__content {
-    padding-left: $app-sidebar-width-collapsed;
+    padding-right: $app-sidebar-width-collapsed;
   }
 
   .app-main__outer {
-    padding-left: $app-sidebar-width-collapsed;
+    padding-right: $app-sidebar-width-collapsed;
   }
 }
 
@@ -111,7 +111,7 @@
 
         .vsm-icon {
           left: 5px;
-          margin-left: 0;
+          margin-right: 0;
         }
 
         .vsm-dropdown {

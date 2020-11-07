@@ -1,29 +1,29 @@
 <template>
     <div>
         <b-alert v-model="alert" variant="success" dismissible>
-            Created, Reload the page
+            تمت الاضافة،اعد تحميل الصفحة
         </b-alert>
         <form class="" @submit.prevent="add" ref="form">
-            <label for="image" class="">Image</label>
+            <label for="image" class="">الصورة</label>
 
             <b-form-file
                 id="image"
-                placeholder="Choose a image"
-                drop-placeholder="Drop image here..."
+                placeholder="اختر صورة"
+                drop-placeholder="اسقط الصورة هنا"
                 name="image"
             ></b-form-file>
             <div class="position-relative form-group">
-                <label for="title" class="">Title</label
+                <label for="title" class="">العنوان</label
                 ><input
                     id="title"
                     v-model="title"
-                    placeholder="Title"
+                    placeholder="العنوان"
                     class="form-control"
                 />
             </div>
 
             <button class="mt-2 btn btn-primary">
-                Add service
+                اضف الخدمة
             </button>
         </form>
     </div>

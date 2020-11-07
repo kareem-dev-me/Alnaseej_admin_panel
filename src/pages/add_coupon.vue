@@ -1,43 +1,43 @@
 <template>
     <div>
         <b-alert v-model="alert" variant="success" dismissible>
-            Created
+            تمت الاضافة
         </b-alert>
         <div class="main-card mb-3 card">
             <div class="card-body">
-                <h5 class="card-title">Add Coupon</h5>
+                <h5 class="card-title">اضافة قسيمة</h5>
                 <form class="" @submit.prevent="add_coupon">
                     <div class="position-relative form-group">
-                        <label for="value" class="">Value</label
+                        <label for="value" class="">القيمة</label
                         ><input
                             id="value"
                             v-model="value"
-                            placeholder="value"
+                            placeholder="القيمة"
                             type="number"
                             class="form-control"
                         />
                     </div>
 
                     <div class="position-relative form-group">
-                        <label for="code" class="">Code</label
+                        <label for="code" class="">الكود</label
                         ><input
                             id="code"
                             v-model="code"
-                            placeholder="Code"
+                            placeholder="الكود"
                             type="text"
                             class="form-control"
                         />
                     </div>
-                    <label for="expirationDate" class="">Expiration date</label>
+                    <label for="expirationDate" class="">تاريخ الانتهاء</label>
                     <b-form-datepicker
                         class="py-4 px-4"
                         v-model="expirationDate"
                         id="expirationDate"
-                        placeholder="Expiration date"
+                        placeholder="تاريخ الانتهاء"
                     ></b-form-datepicker>
 
                     <button class="mt-2 btn btn-primary">
-                        Add coupon
+                        اضف القسيمة
                     </button>
                 </form>
             </div>

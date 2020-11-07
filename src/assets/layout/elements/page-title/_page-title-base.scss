@@ -32,7 +32,7 @@
   .page-title-subheading {
     padding: 3px 0 0;
     font-size: $font-size-base;
-    opacity: .6;
+    opacity: 0.6;
 
     .breadcrumb {
       padding: 0;
@@ -42,7 +42,7 @@
   }
 
   .page-title-actions {
-    margin-left: auto;
+    margin-right: auto;
 
     .breadcrumb {
       margin: 0;
@@ -81,8 +81,8 @@
   &.app-page-title-simple {
     margin: 0;
     background: none !important;
-    padding-left: 0;
     padding-right: 0;
+    padding-left: 0;
     padding-top: 0;
   }
 }

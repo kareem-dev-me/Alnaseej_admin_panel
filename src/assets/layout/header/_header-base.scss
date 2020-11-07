@@ -6,7 +6,7 @@
   align-items: center;
   align-content: center;
   z-index: 10;
-  transition: all .2s;
+  transition: all 0.2s;
   position: fixed;
   width: 100%;
 
@@ -23,9 +23,9 @@
     align-items: center;
     align-content: center;
     flex: 1;
-    padding-left: $app-sidebar-width;
+    padding-right: $app-sidebar-width;
     height: $app-header-height;
-    transition: all .2s;
+    transition: all 0.2s;
 
     .app-header-left {
       display: flex;
@@ -36,7 +36,7 @@
     .app-header-right {
       align-items: center;
       display: flex;
-      margin-left: auto;
+      margin-right: auto;
       padding: 0 $layout-spacer-x 0 0;
     }
   }

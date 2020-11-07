@@ -1,36 +1,36 @@
 <template>
     <div>
         <b-alert v-model="alert" variant="success" dismissible>
-            Created
+            تمت الاضافة
         </b-alert>
         <div class="main-card mb-3 card">
             <div class="card-body">
-                <h5 class="card-title">Add Product</h5>
+                <h5 class="card-title">اضف منتج</h5>
                 <form class="" @submit.prevent="add_product" ref="form">
-                    <label for="image" class="">Image</label>
+                    <label for="image" class="">الصورة</label>
 
                     <b-form-file
                         id="image"
-                        placeholder="Choose a image"
-                        drop-placeholder="Drop image here..."
+                        placeholder="اختر صورة"
+                        drop-placeholder="اسقط الصورة هنا"
                         name="image"
                     ></b-form-file>
                     <div class="position-relative form-group">
-                        <label for="description" class="">Description</label
+                        <label for="description" class="">الوصف</label
                         ><input
                             id="description"
                             v-model="description"
-                            placeholder="Description"
+                            placeholder="الوصف"
                             class="form-control"
                         />
                     </div>
 
                     <div class="position-relative form-group">
-                        <label for="title" class="">Title</label
+                        <label for="title" class="">العنوان</label
                         ><input
                             id="title"
                             v-model="title"
-                            placeholder="Title"
+                            placeholder="العنوان"
                             type="text"
                             class="form-control"
                         />
@@ -42,25 +42,25 @@
                                     v-if="i != 0"
                                     variant="outline-danger"
                                     @click="options.splice(i, 1)"
-                                    >remove option</b-button
-                                >&nbsp;Option #{{ i + 1 }}
+                                    >حذف خيار</b-button
+                                >&nbsp;خيار رقم #{{ i + 1 }}
                             </p>
                             <div class="position-relative form-group">
-                                <label for="title" class="">Title</label
+                                <label for="title" class="">العنوان</label
                                 ><input
                                     id="title"
                                     v-model="option.title"
-                                    placeholder="Title"
+                                    placeholder="العنوان"
                                     type="text"
                                     class="form-control"
                                 />
                             </div>
                             <div class="position-relative form-group">
-                                <label for="price" class="">Price</label
+                                <label for="price" class="">السعر</label
                                 ><input
                                     id="price"
                                     v-model="option.price"
-                                    placeholder="Price"
+                                    placeholder="السعر"
                                     type="number"
                                     class="form-control"
                                 />
@@ -71,11 +71,11 @@
                         block
                         variant="outline-primary"
                         @click="options.push({ title: null, price: null })"
-                        >Add option</b-button
+                        >اضف خيار</b-button
                     >
 
                     <button class="mt-2 btn btn-primary">
-                        Add product
+                        اضف المنتج
                     </button>
                 </form>
             </div>

@@ -18,7 +18,7 @@
             >
                 <b-card-text>
                     <div>
-                        <p>Payment method</p>
+                        <p>وسيلة الدفع</p>
                         <p>
                             {{ order.paymentMethod.textEn }} |
                             {{ order.paymentMethod.textAR }}
@@ -26,14 +26,14 @@
                     </div>
                     <hr />
                     <div>
-                        <p>Shipping address</p>
+                        <p>مكان التسوق</p>
                         <p>
                             {{ order.shippingAddress.addressText }}
                         </p>
                     </div>
                     <hr />
                     <div>
-                        <p>User</p>
+                        <p>المستخدم</p>
                         <b-card>
                             <div class="text-center">
                                 <b-img
@@ -59,7 +59,7 @@
                     <hr />
 
                     <div>
-                        <p>Cart item list</p>
+                        <p>المنتجات في العربة</p>
                         <b-card
                             v-for="product in order.cartItemList"
                             :key="product.id"
@@ -87,8 +87,7 @@
                                         </b-card-text>
 
                                         <b-button variant="primary"
-                                            >quantity:
-                                            {{ product.qty }}</b-button
+                                            >الكمية: {{ product.qty }}</b-button
                                         >
                                     </b-card>
                                 </div>
@@ -97,28 +96,28 @@
                     </div>
                     <hr />
                     <div>
-                        <p>Cuopon</p>
+                        <p>القسيمة</p>
                         <p>
                             {{ order.coupon || "No Cuopon" }}
                         </p>
                     </div>
                     <hr />
                     <div>
-                        <p>Delivery fees</p>
+                        <p>رسوم التوصيل</p>
                         <p>
                             {{ order.deliveryFees }}
                         </p>
                     </div>
                     <hr />
                     <div>
-                        <p>Order total</p>
+                        <p>المجموع الكلي للطلب</p>
                         <p>
                             {{ order.orderTotal }}
                         </p>
                     </div>
                     <hr />
                     <div>
-                        <p>Partial total</p>
+                        <p>المجموع الجزئي للطلب</p>
                         <p>
                             {{ order.partialTotal }}
                         </p>
@@ -128,7 +127,7 @@
             </b-card>
         </div>
         <div class="text-center" v-if="orders.length == 0">
-            No orders in this day
+            لا يوجد طلبات في هذا التاريخ
         </div>
     </div>
 </template>

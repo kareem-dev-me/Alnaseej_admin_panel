@@ -14,8 +14,8 @@
   @include border-radius($card-border-radius);
 
   > hr {
-    margin-right: 0;
     margin-left: 0;
+    margin-right: 0;
   }
 
   > .list-group:first-child {
@@ -57,7 +57,7 @@
   }
 
   + .card-link {
-    margin-left: $card-spacer-x;
+    margin-right: $card-spacer-x;
   }
 }
 
@@ -73,7 +73,9 @@
   border-bottom: $card-border-width solid $card-border-color;
 
   &:first-child {
-    @include border-radius($card-inner-border-radius $card-inner-border-radius 0 0);
+    @include border-radius(
+      $card-inner-border-radius $card-inner-border-radius 0 0
+    );
   }
 
   + .list-group {
@@ -89,19 +91,20 @@
   border-top: $card-border-width solid $card-border-color;
 
   &:last-child {
-    @include border-radius(0 0 $card-inner-border-radius $card-inner-border-radius);
+    @include border-radius(
+      0 0 $card-inner-border-radius $card-inner-border-radius
+    );
   }
 }
-
 
 //
 // Header navs
 //
 
 .card-header-tabs.nav-tabs {
-  margin-right: -$card-spacer-x / 2;
-  margin-bottom: 0;
   margin-left: -$card-spacer-x / 2;
+  margin-bottom: 0;
+  margin-right: -$card-spacer-x / 2;
   border-bottom: 0;
 
   .nav-link {
@@ -110,8 +113,8 @@
 }
 
 .card-header-pills.nav-pills {
-  margin-right: -$card-spacer-x / 2;
   margin-left: -$card-spacer-x / 2;
+  margin-right: -$card-spacer-x / 2;
   margin-bottom: 0;
 
   .nav-link {
@@ -129,7 +132,7 @@
 .card-img-overlay {
   position: absolute;
   top: 0;
-  right: 0;
+  left: 0;
   bottom: 0;
   left: 0;
   padding: $card-img-overlay-padding;
@@ -151,7 +154,6 @@
   @include border-bottom-radius($card-inner-border-radius);
 }
 
-
 // Card deck
 
 .card-deck {
@@ -164,21 +166,20 @@
 
   @include media-breakpoint-up(sm) {
     flex-flow: row wrap;
-    margin-right: -$card-deck-margin;
     margin-left: -$card-deck-margin;
+    margin-right: -$card-deck-margin;
 
     .card {
       display: flex;
       // Flexbugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
       flex: 1 0 0%;
       flex-direction: column;
-      margin-right: $card-deck-margin;
-      margin-bottom: 0; // Override the default
       margin-left: $card-deck-margin;
+      margin-bottom: 0; // Override the default
+      margin-right: $card-deck-margin;
     }
   }
 }
-
 
 //
 // Card groups
@@ -204,7 +205,7 @@
       margin-bottom: 0;
 
       + .card {
-        margin-left: 0;
+        margin-right: 0;
         border-left: 0;
       }
 
@@ -264,7 +265,6 @@
   }
 }
 
-
 //
 // Columns
 //
@@ -286,7 +286,6 @@
     }
   }
 }
-
 
 //
 // Accordion

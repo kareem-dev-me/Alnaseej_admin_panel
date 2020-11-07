@@ -5,20 +5,20 @@
             :variant="err ? 'danger' : 'success'"
             dismissible
         >
-            {{ err || "Created" }}
+            {{ err || "تمت الاضافة" }}
         </b-alert>
         <div class="main-card mb-3 card">
             <div class="card-body">
-                <h5 class="card-title">Register User</h5>
+                <h5 class="card-title">تسجيل مستخدم</h5>
                 <form class="" @submit.prevent="register" ref="form">
                     <div class="form-row">
                         <div class="col-md-6">
                             <div class="position-relative form-group">
-                                <label for="email" class="">Email</label
+                                <label for="email" class="">الايميل</label
                                 ><input
                                     v-model="email"
                                     id="email"
-                                    placeholder="Delivery boy email"
+                                    placeholder="الايميل"
                                     type="email"
                                     class="form-control"
                                 />
@@ -26,47 +26,48 @@
                         </div>
                         <div class="col-md-6">
                             <div class="position-relative form-group">
-                                <label for="password" class="">Password</label
+                                <label for="password" class=""
+                                    >كلمة المرور</label
                                 ><input
                                     v-model="password"
                                     id="password"
-                                    placeholder="Delivery boy password"
+                                    placeholder="كلمة المرور"
                                     type="password"
                                     class="form-control"
                                 />
                             </div>
                         </div>
                     </div>
-                    <label for="image" class="">Image</label>
+                    <label for="image" class="">الصورة</label>
 
                     <b-form-file
                         id="image"
-                        placeholder="Choose a image"
-                        drop-placeholder="Drop image here..."
+                        placeholder="اختر صورة"
+                        drop-placeholder="اسقط الصورة هنا"
                         name="image"
                     ></b-form-file>
                     <div class="position-relative form-group">
-                        <label for="phone" class="">Phone</label
+                        <label for="phone" class="">الجوال</label
                         ><input
                             id="phone"
                             v-model="phone"
-                            placeholder="Delivery boy phone number"
+                            placeholder="الجوال"
                             type="text"
                             class="form-control"
                         />
                     </div>
                     <div class="position-relative form-group">
-                        <label for="full_name" class="">Full name</label
+                        <label for="full_name" class="">الاسم بالكامل</label
                         ><input
                             id="full_name"
                             v-model="full_name"
-                            placeholder="Delivery boy full name"
+                            placeholder="الاسم بالكامل"
                             type="text"
                             class="form-control"
                         />
                     </div>
 
-                    <button class="mt-2 btn btn-primary">Register</button>
+                    <button class="mt-2 btn btn-primary">تسجيل</button>
                 </form>
             </div>
         </div>

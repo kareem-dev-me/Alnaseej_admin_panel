@@ -1,10 +1,10 @@
 <template>
     <div>
         <b-alert v-model="active_alert" variant="success" dismissible>
-            Activated, reload the page
+            تم التفعيل،اعد تحميل الصفحة
         </b-alert>
         <b-alert v-model="deactive_alert" variant="danger" dismissible>
-            Deactivated, reload the page
+            تم التعطيل،اعد تحميل الصفحة
         </b-alert>
         <div
             class="main-card mb-3 card"
@@ -23,14 +23,14 @@
                     @click="active(method.id)"
                     v-if="!method.active"
                 >
-                    Active
+                    تفعيل
                 </button>
                 <button
                     class="btn btn-danger"
                     @click="deactive(method.id)"
                     v-if="method.active"
                 >
-                    Deactive
+                    تعطيل
                 </button>
             </div>
         </div>

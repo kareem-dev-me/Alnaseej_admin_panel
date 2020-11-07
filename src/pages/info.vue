@@ -2,7 +2,7 @@
     <div>
         <div class="form-row">
             <div class="col-md-2">
-                <p class="font-weight-bold">Email</p>
+                <p class="font-weight-bold">الايميل</p>
             </div>
             <div class="col-md-10">
                 <p>{{ info.email }}</p>
@@ -11,7 +11,7 @@
         <hr />
         <div class="form-row">
             <div class="col-md-2">
-                <p class="font-weight-bold">Phone number</p>
+                <p class="font-weight-bold">الجوال</p>
             </div>
             <div class="col-md-10">
                 <p>{{ info.phoneNumber }}</p>
@@ -20,7 +20,7 @@
         <hr />
         <div class="form-row">
             <div class="col-md-2">
-                <p class="font-weight-bold">Delivery fees</p>
+                <p class="font-weight-bold">رسوم التوصيل</p>
             </div>
             <div class="col-md-10">
                 <p>{{ info.deliveryFees }}</p>
@@ -29,7 +29,7 @@
         <hr />
         <div class="form-row">
             <div class="col-md-2">
-                <p class="font-weight-bold">Images</p>
+                <p class="font-weight-bold">الصور</p>
             </div>
             <div class="col-md-10">
                 <div class="row">
@@ -50,7 +50,7 @@
         <hr />
         <div class="form-row">
             <div class="col-md-2">
-                <p class="font-weight-bold">Facebook</p>
+                <p class="font-weight-bold">فيسبوك</p>
             </div>
             <div class="col-md-10">
                 <a :href="`${info.facebook}`" target="_blank">{{
@@ -61,7 +61,7 @@
         <hr />
         <div class="form-row">
             <div class="col-md-2">
-                <p class="font-weight-bold">Snapchat</p>
+                <p class="font-weight-bold">سناب شات</p>
             </div>
             <div class="col-md-10">
                 <a :href="`${info.snapchat}`" target="_blank">{{
@@ -72,7 +72,7 @@
         <hr />
         <div class="form-row">
             <div class="col-md-2">
-                <p class="font-weight-bold">Twitter</p>
+                <p class="font-weight-bold">تويتر</p>
             </div>
             <div class="col-md-10">
                 <a :href="`${info.twitter}`" target="_blank">{{
@@ -83,7 +83,7 @@
         <hr />
         <div class="form-row">
             <div class="col-md-2">
-                <p class="font-weight-bold">Instagram</p>
+                <p class="font-weight-bold">انستجرام</p>
             </div>
             <div class="col-md-10">
                 <a :href="`${info.instagram}`" target="_blank">{{

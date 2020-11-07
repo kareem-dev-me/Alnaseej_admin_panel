@@ -45,8 +45,8 @@
 // Center Elements
 
 .margin-h-center {
-  margin-left: auto !important;
   margin-right: auto !important;
+  margin-left: auto !important;
 }
 
 .center-svg {
@@ -70,7 +70,7 @@
 .alert-dismissible {
   .close {
     top: 0;
-    right: 5px;
+    left: 5px;
     padding: 5px;
   }
 }
@@ -91,7 +91,7 @@
 }
 
 .font-size-md {
-  font-size: .9rem !important;
+  font-size: 0.9rem !important;
 }
 
 .font-size-lg {
@@ -129,7 +129,7 @@
 // Font size
 
 .fsize-1 {
-  font-size: .95rem !important;
+  font-size: 0.95rem !important;
 }
 
 .fsize-2 {

@@ -2,7 +2,7 @@
 
 .header-btn-lg {
   padding: 0 0 0 ($layout-spacer-x);
-  margin-left: ($layout-spacer-x);
+  margin-right: ($layout-spacer-x);
   display: flex;
   align-items: center;
   position: relative;
@@ -11,7 +11,7 @@
     position: absolute;
     top: 50%;
     margin-top: -1px;
-    right: -3px;
+    left: -3px;
   }
 
   .hamburger-inner,
@@ -19,5 +19,4 @@
   .hamburger-inner::after {
     background: $gray-600;
   }
-
 }

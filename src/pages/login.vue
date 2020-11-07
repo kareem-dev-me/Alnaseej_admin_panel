@@ -10,23 +10,20 @@
                             <div class="modal-body">
                                 <div class="h5 modal-title text-center">
                                     <h4 class="mt-2">
-                                        <div>Welcome back,</div>
+                                        <div>اهلاً بعودتك،</div>
                                         <span
-                                            >Please sign in to your account
-                                            below.</span
+                                            >من فضلك قم بتسجيل الدخول في
+                                            الاسفل</span
                                         >
                                     </h4>
                                 </div>
-                                <b-form-group
-                                    label-for="email"
-                                    description="We'll never share your email with anyone else."
-                                >
+                                <b-form-group label-for="email">
                                     <b-form-input
                                         v-model="email"
                                         id="email"
                                         type="email"
                                         required
-                                        placeholder="Enter email..."
+                                        placeholder="الايميل"
                                     >
                                     </b-form-input>
                                 </b-form-group>
@@ -36,7 +33,7 @@
                                         id="password"
                                         type="password"
                                         required
-                                        placeholder="Enter password..."
+                                        placeholder="كلمة المرور"
                                     >
                                     </b-form-input>
                                 </b-form-group>
@@ -49,13 +46,13 @@
                                         variant="primary"
                                         size="lg"
                                         @click="login"
-                                        >Login to Dashboard</b-button
+                                        >تسجيل الدخول الى لوحة التحكم</b-button
                                     >
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="text-center text-white opacity-8 mt-3">
+                    <div class="text-center text-white opacity-8 mt-3 ltr">
                         Copyright &copy; Alnaseej 2020 powered by&nbsp;
 
                         <a href="https://pithsoft.com/" target="_blank"
@@ -84,7 +81,7 @@ export default {
                 })
                 .then(res => {
                     localStorage.setItem("token", res.data.jwt);
-                    this.$router.replace("/users");
+                    this.$router.replace("/info");
                 });
         }
     }

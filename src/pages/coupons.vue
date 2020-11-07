@@ -11,13 +11,13 @@
                     {{ coupon.value }}
                 </h6>
                 <p class="font-weight-bold">
-                    Expiration date: {{ coupon.expirationDate[0] }}/{{
+                    تاريخ الانتهاء: {{ coupon.expirationDate[0] }}/{{
                         coupon.expirationDate[1]
                     }}/{{ coupon.expirationDate[2] }}
                 </p>
                 <br />
                 <button
-                    class="btn btn-warning mr-1"
+                    class="btn btn-warning ml-1"
                     v-b-modal.modal
                     @click="
                         selected_coupon = {
@@ -28,46 +28,46 @@
                         }
                     "
                 >
-                    Edit
+                    تعديل
                 </button>
-                <button class="btn btn-danger ml-1" @click="del(coupon.id)">
-                    Delete
+                <button class="btn btn-danger mr-1" @click="del(coupon.id)">
+                    حذف
                 </button>
             </div>
         </div>
-        <b-modal id="modal" title="Edit" hide-footer>
+        <b-modal id="modal" title="تعديل" hide-footer>
             <form class="" @submit.prevent="edit">
                 <div class="position-relative form-group">
-                    <label for="value" class="">Value</label
+                    <label for="value" class="">القيمة</label
                     ><input
                         id="value"
                         v-model="selected_coupon.value"
-                        placeholder="value"
+                        placeholder="القيمة"
                         type="number"
                         class="form-control"
                     />
                 </div>
 
                 <div class="position-relative form-group">
-                    <label for="code" class="">Code</label
+                    <label for="code" class="">الكود</label
                     ><input
                         id="code"
                         v-model="selected_coupon.code"
-                        placeholder="Code"
+                        placeholder="الكود"
                         type="text"
                         class="form-control"
                     />
                 </div>
-                <label for="expirationDate" class="">Expiration date</label>
+                <label for="expirationDate" class="">تاريخ الانتهاء</label>
                 <b-form-datepicker
                     class="py-4 px-4"
                     v-model="selected_coupon.expirationDate"
                     id="expirationDate"
-                    placeholder="Expiration date"
+                    placeholder="تاريخ الانتهاء"
                 ></b-form-datepicker>
 
                 <button class="mt-2 btn btn-primary">
-                    Edit coupon
+                    تعديل القسيمة
                 </button>
             </form>
         </b-modal>

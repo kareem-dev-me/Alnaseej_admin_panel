@@ -1,6 +1,6 @@
 <template>
     <div class="app-footer">
-        <div class="app-footer__inner text-center">
+        <div class="app-footer__inner text-center ltr">
             Copyright &copy; Alnaseej 2020 powered by&nbsp;
             <a href="https://pithsoft.com/" target="_blank">Pithsoft</a>
         </div>

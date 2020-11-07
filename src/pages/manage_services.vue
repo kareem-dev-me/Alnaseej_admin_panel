@@ -2,7 +2,7 @@
     <div>
         <router-link to="/add_service">
             <button class="btn btn-success mx-1 my-3">
-                Add service
+                اضف خدمة
             </button>
         </router-link>
         <div
@@ -27,40 +27,40 @@
                 </h6>
                 <br />
                 <button
-                    class="btn btn-warning mr-1"
+                    class="btn btn-warning ml-1"
                     v-b-modal.modal
                     @click="selected_service = service"
                 >
-                    Edit service
+                    تعديل الخدمة
                 </button>
-                <button class="btn btn-danger ml-1" @click="del(service.id)">
-                    Delete service
+                <button class="btn btn-danger mr-1" @click="del(service.id)">
+                    حذف الخدمة
                 </button>
             </div>
         </div>
-        <b-modal id="modal" title="Edit" hide-footer>
+        <b-modal id="modal" title="تعديل" hide-footer>
             <form class="" @submit.prevent="edit" ref="form">
-                <label for="image" class="">Image</label>
+                <label for="image" class="">الصورة</label>
 
                 <b-form-file
                     id="image"
-                    placeholder="Choose a image"
-                    drop-placeholder="Drop image here..."
+                    placeholder="اختر صورة"
+                    drop-placeholder="اسقط الصورة هنا"
                     name="image"
                     v-model="image"
                 ></b-form-file>
                 <div class="position-relative form-group">
-                    <label for="title" class="">Title</label
+                    <label for="title" class="">العنوان</label
                     ><input
                         id="title"
                         v-model="selected_service.title"
-                        placeholder="Title"
+                        placeholder="العنوان"
                         class="form-control"
                     />
                 </div>
 
                 <button class="mt-2 btn btn-primary">
-                    Edit service
+                    تعديل الخدمة
                 </button>
             </form>
         </b-modal>

@@ -3,48 +3,48 @@
         <div v-for="item in subscriptions" :key="item.id">
             <div class="row text-center">
                 <div class="col-md-4">
-                    <p class="font-weight-bold ">Subscription service</p>
+                    <p class="font-weight-bold ">خدمة الاشتراك</p>
                     <p>
                         {{ item.subscriptionService }}
                     </p>
                 </div>
                 <div class="col-md-4">
-                    <p class="font-weight-bold ">Subscription service arabic</p>
+                    <p class="font-weight-bold ">خدمة الاشتراك بالعربية</p>
                     <p>{{ item.subscriptionServiceAR }}</p>
                 </div>
                 <div class="col-md-4">
-                    <p class="font-weight-bold ">Credit</p>
+                    <p class="font-weight-bold ">الائتمان</p>
                     <p>{{ item.credit }}</p>
                 </div>
             </div>
-            <div class="text-center">
+            <div class="text-right">
                 <b-button
-                    class="mr-2 mb-2"
+                    class="ml-2 mb-2"
                     variant="warning"
                     v-b-modal.modal
                     @click="subscription = item"
                 >
-                    Edit
+                    تعديل
                 </b-button>
                 <b-button
-                    class="mr-2 mb-2"
+                    class="ml-2 mb-2"
                     variant="danger"
                     @click="del(item.id)"
                 >
-                    delete
+                    حذف
                 </b-button>
             </div>
 
             <hr />
         </div>
-        <b-modal id="modal" title="Edit" hide-footer>
+        <b-modal id="modal" title="تعديل" hide-footer>
             <form class="" @submit.prevent="edit(subscription.id)">
                 <div class="position-relative form-group">
-                    <label for="credit" class="">credit</label
+                    <label for="credit" class="">الائتمان</label
                     ><input
                         id="credit"
                         v-model="subscription.credit"
-                        placeholder="Credit"
+                        placeholder="الائتمان"
                         type="number"
                         class="form-control"
                     />
@@ -52,29 +52,29 @@
 
                 <div class="position-relative form-group">
                     <label for="subscriptionService" class=""
-                        >Subscription service</label
+                        >خدمة الاشتراك</label
                     ><input
                         id="subscriptionService"
                         v-model="subscription.subscriptionService"
-                        placeholder="Subscription service"
+                        placeholder="خدمة الاشتراك"
                         type="text"
                         class="form-control"
                     />
                 </div>
                 <div class="position-relative form-group">
                     <label for="subscriptionServiceAR" class=""
-                        >Subscription service arabic</label
+                        >خدمة الاشتراك بالعربية</label
                     ><input
                         id="subscriptionServiceAR"
                         v-model="subscription.subscriptionServiceAR"
-                        placeholder="Subscription service arabic"
+                        placeholder="خدمة الاشتراك بالعربية"
                         type="text"
                         class="form-control"
                     />
                 </div>
 
                 <button class="mt-2 btn btn-primary">
-                    Edit subscription
+                    تعديل الاشتراك
                 </button>
             </form>
         </b-modal>
