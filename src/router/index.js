@@ -222,19 +222,19 @@ export default new Router({
                   });
                 }}
         },
-        {
-            path: '/orders_in_day',
-            name: 'orders_in_day',
-            component: () => import('../pages/orders_in_day.vue'),
-            beforeEnter(to, from, next) {
-                if (localStorage.getItem('token')) {
-                  next()
-                } else {
-                  next({
-                    name: "login" 
-                  });
-                }}
-        },
+        // {
+        //     path: '/orders_in_day',
+        //     name: 'orders_in_day',
+        //     component: () => import('../pages/orders_in_day.vue'),
+        //     beforeEnter(to, from, next) {
+        //         if (localStorage.getItem('token')) {
+        //           next()
+        //         } else {
+        //           next({
+        //             name: "login" 
+        //           });
+        //         }}
+        // },
         // coupons
         {
             path: '/coupons',

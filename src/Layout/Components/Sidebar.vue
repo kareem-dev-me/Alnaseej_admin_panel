@@ -146,10 +146,7 @@ export default {
                                 href: "/active_orders",
                                 title: "الطلبات المفعلة"
                             },
-                            {
-                                href: "/orders_in_day",
-                                title: "الطلبات في يوم معين"
-                            },
+
                             {
                                 href: "/delivered_orders",
                                 title: "طلبات تم توصيلها"
@@ -255,8 +252,6 @@ export default {
                         href: "/logout"
                     }
                 ];
-
-              
             });
     },
 
