@@ -100,7 +100,7 @@
                     </div>
 
                     <button class="mt-2 btn btn-primary">
-                        تعديل معلومات التذبيق
+                        تعديل معلومات التطبيق
                     </button>
                 </form>
             </div>
