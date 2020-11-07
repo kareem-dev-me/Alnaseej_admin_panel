@@ -85,7 +85,6 @@ export default {
             })
             .then(res => {
                 this.services = res.data;
-                console.log(this.services);
             });
     },
     methods: {

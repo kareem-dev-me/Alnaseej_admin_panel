@@ -161,7 +161,6 @@ export default {
             })
             .then(res => {
                 this.orders = res.data.content;
-                console.log("mounted -> res", res);
             });
     }
 };

@@ -156,7 +156,6 @@ export default {
             })
             .then(res => {
                 this.orders = res.data.content;
-                console.log("mounted -> res", res.data);
             });
         await this.$http
             .get("/admin/deliveryBoys", {
@@ -165,7 +164,6 @@ export default {
                 }
             })
             .then(res => {
-                console.log("mounted -> res", res);
                 this.users = res.data.content.map(item => {
                     return { text: item.fullName, value: item.id };
                 });
@@ -189,7 +187,6 @@ export default {
                     }
                 )
                 .then(res => {
-                    console.log("assign -> res", res);
                     alert("Assigned successfully");
                     this.selected_order = false;
                 });

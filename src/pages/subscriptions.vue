@@ -102,7 +102,6 @@ export default {
             })
             .then(res => {
                 this.subscriptions = res.data;
-                console.log("mounted -> res", res);
             });
     },
     methods: {

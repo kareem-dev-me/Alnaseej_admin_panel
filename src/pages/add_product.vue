@@ -113,7 +113,6 @@ export default {
                 })
                 .then(res => {
                     this.alert = true;
-                    console.log("mounted -> res", res);
                 });
         }
     }

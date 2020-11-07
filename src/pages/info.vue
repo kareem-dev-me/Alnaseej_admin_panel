@@ -39,6 +39,7 @@
                         :key="image"
                     >
                         <b-img
+                            v-if="image"
                             :src="`${info.baseUrl}${image}`"
                             fluid
                             alt="image"
@@ -110,7 +111,6 @@ export default {
                 }
             })
             .then(res => {
-                console.log("mounted -> res", res.data);
                 this.info = res.data;
             });
     }

@@ -55,7 +55,6 @@ export default {
             })
             .then(res => {
                 this.methods = res.data;
-                console.log("mounted -> res", res);
             });
     },
     methods: {
@@ -68,7 +67,6 @@ export default {
                 })
                 .then(res => {
                     this.deactive_alert = true;
-                    console.log("mounted -> res", res);
                 });
         },
         async active(id) {
@@ -80,7 +78,6 @@ export default {
                 })
                 .then(res => {
                     this.active_alert = true;
-                    console.log("mounted -> res", res);
                 });
         }
     }

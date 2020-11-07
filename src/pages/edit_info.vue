@@ -126,7 +126,6 @@ export default {
                 }
             })
             .then(res => {
-                console.log("mounted -> res", res.data);
                 this.info = res.data;
             });
     },
@@ -157,7 +156,6 @@ export default {
                 });
         },
         Filevalidation(e) {
-            console.log("e", e);
             for (let i of e) {
                 if (i.size > 1000000) {
                     alert("Max image size 1MB");

@@ -91,7 +91,6 @@ export default {
             })
             .then(res => {
                 this.coupons = res.data.content;
-                console.log("mounted -> res", res);
             });
     },
     methods: {

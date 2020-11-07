@@ -166,7 +166,6 @@ export default {
                 }
             })
             .then(res => {
-                console.log("res", res);
                 this.products = res.data;
             });
     },

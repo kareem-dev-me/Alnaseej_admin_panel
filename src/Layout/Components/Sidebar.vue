@@ -256,8 +256,7 @@ export default {
                     }
                 ];
 
-                console.log(this.laundry_services);
-                console.log("mounted -> res", res);
+              
             });
     },
 
