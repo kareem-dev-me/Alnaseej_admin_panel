@@ -26,11 +26,11 @@
                     </div>
 
                     <div class="position-relative form-group">
-                        <label for="title" class="">العنوان</label
+                        <label for="title" class="">اسم المنتج</label
                         ><input
                             id="title"
                             v-model="title"
-                            placeholder="العنوان"
+                            placeholder="اسم المنتج"
                             type="text"
                             class="form-control"
                         />
@@ -46,11 +46,11 @@
                                 >&nbsp;خيار رقم #{{ i + 1 }}
                             </p>
                             <div class="position-relative form-group">
-                                <label for="title" class="">العنوان</label
+                                <label for="title" class="">اسم المنتج</label
                                 ><input
                                     id="title"
                                     v-model="option.title"
-                                    placeholder="العنوان"
+                                    placeholder="اسم المنتج"
                                     type="text"
                                     class="form-control"
                                 />

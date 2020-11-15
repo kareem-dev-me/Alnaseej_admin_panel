@@ -3,7 +3,7 @@
         <div v-for="order in orders" :key="order.id">
             <b-card
                 border-variant="primary"
-                :header="order.orderDate"
+                :header="`تاريخ الطلب: ${order.orderDate}`"
                 header-bg-variant="primary"
                 header-text-variant="white"
                 align="center"
@@ -89,7 +89,11 @@
                     <div>
                         <p>القسيمة</p>
                         <p>
-                            {{ order.coupon || "No Cuopon" }}
+                            {{
+                                order.coupon
+                                    ? `${order.coupon.code} | value: ${order.coupon.value}`
+                                    : "No Cuopon"
+                            }}
                         </p>
                     </div>
                     <hr />

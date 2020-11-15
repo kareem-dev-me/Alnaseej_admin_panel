@@ -6,12 +6,16 @@
                 v-model="date"
                 class="px-2 py-2"
                 @input="select"
+                right
+                calendar-width="400px"
+                locale="ar-SA"
+                direction="rtl"
             ></b-form-datepicker>
         </div>
         <div v-for="order in orders" :key="order.id">
             <b-card
                 border-variant="primary"
-                :header="order.orderDate"
+                :header="`تاريخ الطلب: ${order.orderDate}`"
                 header-bg-variant="primary"
                 header-text-variant="white"
                 align="center"
@@ -98,7 +102,11 @@
                     <div>
                         <p>القسيمة</p>
                         <p>
-                            {{ order.coupon || "No Cuopon" }}
+                            {{
+                                order.coupon
+                                    ? `${order.coupon.code} | value: ${order.coupon.value}`
+                                    : "No Cuopon"
+                            }}
                         </p>
                     </div>
                     <hr />

@@ -139,8 +139,8 @@ export default {
                         icon: "pe-7s-plugin",
                         child: [
                             {
-                                href: "assign_order",
-                                title: "تعين الطلبات"
+                                href: "/assign_order",
+                                title: "الطلبات الجديدة"
                             },
                             {
                                 href: "/active_orders",

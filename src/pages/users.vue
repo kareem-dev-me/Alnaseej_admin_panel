@@ -8,13 +8,14 @@
         </b-alert>
 
         <div class="main-card mb-3 card" v-for="user in users" :key="user.id">
-            <div class="text-center">
+            <div class="text-right">
                 <b-img
-                    v-if="user.imageUrl"
-                    width="100%"
-                    :src="user.imageUrl"
+                    style="border:2px solid #8F87F5"
+                    width="200%"
                     alt="User image"
                     fluid
+                    v-if="user.imageUrl"
+                    :src="user.imageUrl"
                 ></b-img>
             </div>
             <div class="card-body">

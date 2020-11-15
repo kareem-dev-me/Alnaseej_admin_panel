@@ -10,10 +10,11 @@
             v-for="service in services"
             :key="service.id"
         >
-            <div class="text-center">
+            <div class="text-right">
                 <b-img
+                    style="border:2px solid #8F87F5"
                     v-if="service.imageUrl"
-                    width="100%"
+                    width="200%"
                     :src="service.imageUrl"
                     alt="service image"
                     fluid
@@ -50,11 +51,11 @@
                     v-model="image"
                 ></b-form-file>
                 <div class="position-relative form-group">
-                    <label for="title" class="">العنوان</label
+                    <label for="title" class="">اسم الخدمة</label
                     ><input
                         id="title"
                         v-model="selected_service.title"
-                        placeholder="العنوان"
+                        placeholder="اسم الخدمة"
                         class="form-control"
                     />
                 </div>

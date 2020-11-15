@@ -10,10 +10,11 @@
             v-for="product in products"
             :key="product.id"
         >
-            <div class="text-left">
+            <div class="text-right">
                 <b-img
+                    style="border:2px solid #8F87F5"
                     v-if="product.imageUrl"
-                    width="100%"
+                    width="200%"
                     :src="product.imageUrl"
                     alt="product image"
                     fluid
@@ -81,11 +82,11 @@
                 </div>
 
                 <div class="position-relative form-group">
-                    <label for="title" class="">العنوان</label
+                    <label for="title" class="">اسم المنتج</label
                     ><input
                         id="title"
                         v-model="selected_product.title"
-                        placeholder="العنوان"
+                        placeholder="اسم المنتج"
                         type="text"
                         class="form-control"
                     />
@@ -108,11 +109,11 @@
                             >&nbsp; خيار رقم #{{ i + 1 }}
                         </p>
                         <div class="position-relative form-group">
-                            <label for="title" class="">العنوان</label
+                            <label for="title" class="">اسم المنتج</label
                             ><input
                                 id="title"
                                 v-model="option.title"
-                                placeholder="العنوان"
+                                placeholder="اسم المنتج"
                                 type="text"
                                 class="form-control"
                             />
@@ -158,16 +159,13 @@ export default {
             image: null
         };
     },
+    watch: {
+        async $route() {
+            await this.getData();
+        }
+    },
     async mounted() {
-        await this.$http
-            .get(`/admin/laundry-service/${this.$route.params.id}/products`, {
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem("token")}`
-                }
-            })
-            .then(res => {
-                this.products = res.data;
-            });
+        await this.getData();
     },
     methods: {
         async del(id) {
@@ -211,6 +209,22 @@ export default {
                 .then(res => {
                     alert("Edited");
                     this.image = null;
+                });
+        },
+        async getData() {
+            await this.$http
+                .get(
+                    `/admin/laundry-service/${this.$route.params.id}/products`,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${localStorage.getItem(
+                                "token"
+                            )}`
+                        }
+                    }
+                )
+                .then(res => {
+                    this.products = res.data;
                 });
         }
     }

@@ -13,13 +13,17 @@
                 name="image"
             ></b-form-file>
             <div class="position-relative form-group">
-                <label for="title" class="">العنوان</label
+                <label for="title" class="">اسم الخدمة</label
                 ><input
                     id="title"
                     v-model="title"
-                    placeholder="العنوان"
+                    placeholder="اسم الخدمة"
                     class="form-control"
+                    required
                 />
+                <div class="invalid-feedback">
+                    Please provide a valid city.
+                </div>
             </div>
 
             <button class="mt-2 btn btn-primary">

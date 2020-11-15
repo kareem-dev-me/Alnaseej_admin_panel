@@ -44,8 +44,9 @@
                         multiple
                         @input="Filevalidation"
                         v-model="images"
+                        accept="image/*"
                     ></b-form-file>
-                    <p class="text-primary mr-1">اقصى مساحة للصورة 1MB</p>
+                    <p class="text-primary mr-1">اقصى مساحة للصورة 10MB</p>
 
                     <div class="position-relative form-group">
                         <label for="deliveryFees" class="">رسوم التوصيل</label
@@ -157,8 +158,8 @@ export default {
         },
         Filevalidation(e) {
             for (let i of e) {
-                if (i.size > 1000000) {
-                    alert("Max image size 1MB");
+                if (i.size > 10000000) {
+                    alert("Max image size 10MB");
                     this.images = [];
                 }
             }

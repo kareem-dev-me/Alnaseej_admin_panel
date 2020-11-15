@@ -3,9 +3,11 @@
         <b-alert v-model="alert" variant="success" dismissible>
             تمت الاضافة
         </b-alert>
+
         <div class="main-card mb-3 card">
             <div class="card-body">
                 <h5 class="card-title">اضف الاشتراك</h5>
+
                 <form class="" @submit.prevent="add_subscription">
                     <div class="position-relative form-group">
                         <label for="credit" class="">الائتمان</label

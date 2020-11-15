@@ -34,6 +34,10 @@
                         v-model="expirationDate"
                         id="expirationDate"
                         placeholder="تاريخ الانتهاء"
+                        right
+                        calendar-width="400px"
+                        locale="ar-SA"
+                        direction="rtl"
                     ></b-form-datepicker>
 
                     <button class="mt-2 btn btn-primary">
