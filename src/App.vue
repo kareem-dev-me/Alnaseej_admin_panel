@@ -9,6 +9,7 @@
 </template>
 
 <script>
+// { "email": "admin@naseej-laundry.com", "password": "n@seejAdmin1234" }
 const default_layout = "default";
 
 export default {

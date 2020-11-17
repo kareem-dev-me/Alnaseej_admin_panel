@@ -7,31 +7,46 @@
             <div class="card-body">
                 <h5 class="card-title">اضف منتج</h5>
                 <form class="" @submit.prevent="add_product" ref="form">
-                    <label for="image" class="">الصورة</label>
+                    <div class="position-relative form-group">
+                        <label for="image" class="">الصورة</label>
 
-                    <b-form-file
-                        id="image"
-                        placeholder="اختر صورة"
-                        drop-placeholder="اسقط الصورة هنا"
-                        name="image"
-                    ></b-form-file>
+                        <b-form-file
+                            id="image"
+                            placeholder="اختر صورة"
+                            drop-placeholder="اسقط الصورة هنا"
+                            name="image"
+                        ></b-form-file>
+                    </div>
+                    <div class="position-relative form-group">
+                        <label for="title" class=""
+                            >اسم المنتج باللغة الانجليزية</label
+                        ><input
+                            id="title"
+                            v-model="title"
+                            placeholder="اسم المنتج باللغة الانجليزية"
+                            type="text"
+                            class="form-control"
+                            required
+                        />
+                    </div>
+                    <div class="position-relative form-group">
+                        <label for="titleAR" class=""
+                            >اسم المنتج باللغة العربية</label
+                        ><input
+                            id="titleAR"
+                            v-model="titleAR"
+                            placeholder="اسم المنتج باللغة العربية"
+                            type="text"
+                            class="form-control"
+                            required
+                        />
+                    </div>
                     <div class="position-relative form-group">
                         <label for="description" class="">الوصف</label
                         ><input
                             id="description"
                             v-model="description"
                             placeholder="الوصف"
-                            class="form-control"
-                        />
-                    </div>
-
-                    <div class="position-relative form-group">
-                        <label for="title" class="">اسم المنتج</label
-                        ><input
-                            id="title"
-                            v-model="title"
-                            placeholder="اسم المنتج"
-                            type="text"
                             class="form-control"
                         />
                     </div>
@@ -46,13 +61,27 @@
                                 >&nbsp;خيار رقم #{{ i + 1 }}
                             </p>
                             <div class="position-relative form-group">
-                                <label for="title" class="">اسم المنتج</label
+                                <label for="titleEnOption" class=""
+                                    >اسم الخيار باللغة الانجليزية</label
                                 ><input
-                                    id="title"
+                                    id="titleEnOption"
                                     v-model="option.title"
-                                    placeholder="اسم المنتج"
+                                    placeholder="اسم الخيار باللغة الانجليزية"
                                     type="text"
                                     class="form-control"
+                                    required
+                                />
+                            </div>
+                            <div class="position-relative form-group">
+                                <label for="titleAROption" class=""
+                                    >اسم الخيار باللغة العربية</label
+                                ><input
+                                    id="titleAROption"
+                                    v-model="option.titleAR"
+                                    placeholder="اسم الخيار باللغة العربية"
+                                    type="text"
+                                    class="form-control"
+                                    required
                                 />
                             </div>
                             <div class="position-relative form-group">
@@ -70,7 +99,13 @@
                     <b-button
                         block
                         variant="outline-primary"
-                        @click="options.push({ title: null, price: null })"
+                        @click="
+                            options.push({
+                                title: null,
+                                titleAR: null,
+                                price: null
+                            })
+                        "
                         >اضف خيار</b-button
                     >
 
@@ -89,8 +124,9 @@ export default {
         return {
             description: null,
             title: null,
-            options: [{ title: null, price: null }],
-            alert: false
+            options: [{ title: null, titleAR: null, price: null }],
+            alert: false,
+            titleAR: null
         };
     },
     methods: {
@@ -100,6 +136,7 @@ export default {
                 "data",
                 JSON.stringify({
                     title: this.title,
+                    titleAR: this.titleAR,
                     active: true,
                     description: this.description,
                     productOptionsList: this.options

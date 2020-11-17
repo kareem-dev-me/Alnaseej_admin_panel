@@ -54,12 +54,13 @@ export default {
     },
     async mounted() {
         await this.$http
-            .get("/admin/Users?size=100", {
+            .get("/admin/Users?size=10&page=0", {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`
                 }
             })
             .then(res => {
+                console.log("mounted -> res", res);
                 this.users = res.data.content;
             });
     },

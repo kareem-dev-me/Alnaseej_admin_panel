@@ -62,15 +62,42 @@
         </div>
         <b-modal id="modal" title="تعديل" hide-footer>
             <form class="" @submit.prevent="edit" ref="form">
-                <label for="image" class="">الصورة</label>
+                <div class="position-relative form-group">
+                    <label for="image" class="">الصورة</label>
 
-                <b-form-file
-                    id="image"
-                    placeholder="اختر صورة"
-                    drop-placeholder="اسقط الصورة هنا"
-                    name="image"
-                    v-model="image"
-                ></b-form-file>
+                    <b-form-file
+                        id="image"
+                        placeholder="اختر صورة"
+                        drop-placeholder="اسقط الصورة هنا"
+                        name="image"
+                        v-model="image"
+                    ></b-form-file>
+                </div>
+                <div class="position-relative form-group">
+                    <label for="title" class=""
+                        >اسم المنتج باللغة الانجليزية</label
+                    ><input
+                        id="title"
+                        v-model="selected_product.title"
+                        placeholder="اسم المنتج باللغة الانجليزية"
+                        type="text"
+                        class="form-control"
+                        required
+                    />
+                </div>
+                <div class="position-relative form-group">
+                    <label for="titleAR" class=""
+                        >اسم المنتج باللغة العربية</label
+                    ><input
+                        id="titleAR"
+                        v-model="selected_product.titleAR"
+                        placeholder="اسم المنتج باللغة العربية"
+                        type="text"
+                        class="form-control"
+                        required
+                    />
+                </div>
+
                 <div class="position-relative form-group">
                     <label for="description" class="">الوصف</label
                     ><input
@@ -81,16 +108,6 @@
                     />
                 </div>
 
-                <div class="position-relative form-group">
-                    <label for="title" class="">اسم المنتج</label
-                    ><input
-                        id="title"
-                        v-model="selected_product.title"
-                        placeholder="اسم المنتج"
-                        type="text"
-                        class="form-control"
-                    />
-                </div>
                 <template
                     v-for="(option, i) in selected_product.productOptionsList"
                 >
@@ -109,15 +126,30 @@
                             >&nbsp; خيار رقم #{{ i + 1 }}
                         </p>
                         <div class="position-relative form-group">
-                            <label for="title" class="">اسم المنتج</label
+                            <label for="titleEnOption" class=""
+                                >اسم الخيار باللغة الانجليزية</label
                             ><input
-                                id="title"
+                                id="titleEnOption"
                                 v-model="option.title"
-                                placeholder="اسم المنتج"
+                                placeholder="اسم الخيار باللغة الانجليزية"
                                 type="text"
                                 class="form-control"
+                                required
                             />
                         </div>
+                        <div class="position-relative form-group">
+                            <label for="titleAROption" class=""
+                                >اسم الخيار باللغة العربية</label
+                            ><input
+                                id="titleAROption"
+                                v-model="option.titleAR"
+                                placeholder="اسم الخيار باللغة العربية"
+                                type="text"
+                                class="form-control"
+                                required
+                            />
+                        </div>
+
                         <div class="position-relative form-group">
                             <label for="price" class="">السعر</label
                             ><input
@@ -136,6 +168,7 @@
                     @click="
                         selected_product.productOptionsList.push({
                             title: null,
+                            titleAR: null,
                             price: null
                         })
                     "
@@ -187,12 +220,14 @@ export default {
                 JSON.stringify({
                     id: this.selected_product.id,
                     title: this.selected_product.title,
+                    titleAR: this.selected_product.titleAR,
                     active: true,
                     description: this.selected_product.description,
                     productOptionsList: this.selected_product.productOptionsList.map(
                         item => {
                             return {
                                 title: item.title,
+                                titleAR: item.titleAR,
                                 price: item.price,
                                 id: item.id
                             };

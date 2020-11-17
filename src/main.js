@@ -15,7 +15,13 @@ Vue.use(BootstrapVue);
 Vue.prototype.$http =  axios.create({
   baseURL: `http://135.181.36.3:8055`,
   });
+  Vue.prototype.$http.interceptors.response.use((response) => response, (error) => {
+    if(error.response.status >=403){
 
+       localStorage.removeItem('token');
+      router.replace('/')
+    }
+  });
 Vue.component('default-layout', Default);
 Vue.component('userpages-layout', Pages);
 

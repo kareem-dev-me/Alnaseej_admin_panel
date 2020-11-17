@@ -41,22 +41,36 @@
         </div>
         <b-modal id="modal" title="تعديل" hide-footer>
             <form class="" @submit.prevent="edit" ref="form">
-                <label for="image" class="">الصورة</label>
-
-                <b-form-file
-                    id="image"
-                    placeholder="اختر صورة"
-                    drop-placeholder="اسقط الصورة هنا"
-                    name="image"
-                    v-model="image"
-                ></b-form-file>
                 <div class="position-relative form-group">
-                    <label for="title" class="">اسم الخدمة</label
+                    <label for="image" class="">الصورة</label>
+
+                    <b-form-file
+                        id="image"
+                        placeholder="اختر صورة"
+                        drop-placeholder="اسقط الصورة هنا"
+                        name="image"
+                        v-model="image"
+                    ></b-form-file>
+                </div>
+                <div class="position-relative form-group">
+                    <label for="title" class=""
+                        >اسم الخدمة باللغة الانجليزية</label
                     ><input
                         id="title"
                         v-model="selected_service.title"
-                        placeholder="اسم الخدمة"
+                        placeholder="اسم الخدمة باللغة الانجليزية"
                         class="form-control"
+                        required
+                    />
+                </div>
+                <div class="position-relative form-group">
+                    <label for="title" class="">اسم الخدمة باللغة العربية</label
+                    ><input
+                        id="title"
+                        v-model="selected_service.titleAR"
+                        placeholder="اسم الخدمة باللغة العربية"
+                        class="form-control"
+                        required
                     />
                 </div>
 
@@ -95,7 +109,8 @@ export default {
             fs.append(
                 "data",
                 JSON.stringify({
-                    title: this.selected_service.title
+                    title: this.selected_service.title,
+                    titleAR: this.selected_service.titleAR
                 })
             );
             await this.$http
