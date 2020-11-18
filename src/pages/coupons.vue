@@ -75,6 +75,13 @@
                 </button>
             </form>
         </b-modal>
+        <b-pagination
+            v-model="currentPage"
+            :total-rows="rows"
+            :per-page="perPage"
+            @change="getNew"
+            class="mt-5"
+        ></b-pagination>
     </div>
 </template>
 
@@ -83,19 +90,14 @@ export default {
     data() {
         return {
             coupons: [],
-            selected_coupon: { value: "", code: "", expirationDate: "" }
+            selected_coupon: { value: "", code: "", expirationDate: "" },
+            currentPage: 1,
+            rows: 0,
+            perPage: 20
         };
     },
     async mounted() {
-        await this.$http
-            .get("/admin/coupon?size=100", {
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem("token")}`
-                }
-            })
-            .then(res => {
-                this.coupons = res.data.content;
-            });
+        this.getNew(1);
     },
     methods: {
         async edit() {
@@ -135,6 +137,20 @@ export default {
                 )
                 .then(() => {
                     alert("Deleted");
+                });
+        },
+        async getNew(e) {
+            await this.$http
+                .get(`/admin/coupon?page=${e - 1}`, {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("token")}`
+                    }
+                })
+                .then(res => {
+                    this.rows = res.data.totalElements;
+                    this.coupons = res.data.content;
+                    document.body.scrollTop = 0;
+                    document.documentElement.scrollTop = 0;
                 });
         }
     }

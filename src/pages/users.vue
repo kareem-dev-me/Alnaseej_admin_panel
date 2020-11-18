@@ -40,6 +40,13 @@
                 </button>
             </div>
         </div>
+        <b-pagination
+            v-model="currentPage"
+            :total-rows="rows"
+            :per-page="perPage"
+            @change="getNew"
+            class="mt-5"
+        ></b-pagination>
     </div>
 </template>
 
@@ -49,20 +56,14 @@ export default {
         return {
             users: [],
             active_alert: false,
-            deactive_alert: false
+            deactive_alert: false,
+            currentPage: 1,
+            rows: 0,
+            perPage: 20
         };
     },
     async mounted() {
-        await this.$http
-            .get("/admin/Users?size=10&page=0", {
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem("token")}`
-                }
-            })
-            .then(res => {
-                console.log("mounted -> res", res);
-                this.users = res.data.content;
-            });
+        this.getNew(1);
     },
     methods: {
         async deactive(id) {
@@ -85,6 +86,20 @@ export default {
                 })
                 .then(res => {
                     this.active_alert = true;
+                });
+        },
+        async getNew(e) {
+            await this.$http
+                .get(`/admin/Users?page=${e - 1}`, {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("token")}`
+                    }
+                })
+                .then(res => {
+                    this.rows = res.data.totalElements;
+                    this.users = res.data.content;
+                    document.body.scrollTop = 0;
+                    document.documentElement.scrollTop = 0;
                 });
         }
     }

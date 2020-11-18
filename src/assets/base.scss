@@ -113,3 +113,6 @@ html {
 .ps__scrollbar-y-rail {
   right: 274px !important;
 }
+html {
+  scroll-behavior: smooth;
+}

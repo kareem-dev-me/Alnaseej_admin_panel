@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div v-for="order in orders" :key="order.id">
+        <div v-for="order in orders" :key="order.id" class="mb-5">
             <b-card
                 border-variant="primary"
                 :header="`تاريخ الطلب: ${order.orderDate}`"
@@ -128,16 +128,41 @@
                 </b-card-text>
             </b-card>
         </div>
-        <b-modal id="modal" title="Assign delivery boy" hide-footer>
-            <b-form-select
-                v-model="delivery_boy"
-                :options="users"
-                label-field="Please select delivery boy"
-            ></b-form-select>
-            <b-button variant="primary" block class="my-3" @click="assign"
+        <b-modal id="modal" title="تعين فتى توصيل" hide-footer>
+            <template v-for="item in users">
+                <b-form-radio
+                    class="text-left ltr pr-0 pl-4"
+                    :key="item.value"
+                    v-model="delivery_boy"
+                    :name="item.text"
+                    :value="item.value"
+                    >{{ item.text }}</b-form-radio
+                >
+            </template>
+            <b-pagination
+                v-model="currentPageDelivery"
+                :total-rows="rowsDelivery"
+                :per-page="perPageDelivery"
+                @change="getNewDeliveryBoys"
+                class="mt-5 ltr pl-0"
+            ></b-pagination>
+
+            <b-button
+                variant="primary"
+                block
+                class="my-3"
+                @click="assign"
+                :disabled="!delivery_boy"
                 >تعين</b-button
             >
         </b-modal>
+        <b-pagination
+            v-model="currentPage"
+            :total-rows="rows"
+            :per-page="perPage"
+            @change="getNew"
+            class="mt-5"
+        ></b-pagination>
     </div>
 </template>
 
@@ -148,34 +173,18 @@ export default {
             users: [],
             orders: [],
             delivery_boy: null,
-            selected_order: null
+            selected_order: null,
+            currentPage: 1,
+            rows: 0,
+            perPage: 20,
+            currentPageDelivery: 1,
+            rowsDelivery: 0,
+            perPageDelivery: 20
         };
     },
     async mounted() {
-        await this.$http
-            .get("/admin/newOrders", {
-                headers: {
-                    authorization: `Bearer ${localStorage.getItem("token")}`
-                }
-            })
-            .then(res => {
-                this.orders = res.data.content;
-            });
-        await this.$http
-            .get("/admin/deliveryBoys", {
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem("token")}`
-                }
-            })
-            .then(res => {
-                this.users = res.data.content.map(item => {
-                    return { text: item.fullName, value: item.id };
-                });
-                this.users.unshift({
-                    value: null,
-                    text: "Please select delivery boy"
-                });
-            });
+        this.getNew(1);
+        this.getNewDeliveryBoys(1);
     },
     methods: {
         async assign() {
@@ -192,7 +201,36 @@ export default {
                 )
                 .then(res => {
                     alert("Assigned successfully");
-                    this.selected_order = false;
+                    this.selected_order = null;
+                    this.delivery_boy = null;
+                });
+        },
+        async getNew(e) {
+            await this.$http
+                .get(`/admin/newOrders?page=${e - 1}`, {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("token")}`
+                    }
+                })
+                .then(res => {
+                    this.rows = res.data.totalElements;
+                    this.orders = res.data.content;
+                    document.body.scrollTop = 0;
+                    document.documentElement.scrollTop = 0;
+                });
+        },
+        async getNewDeliveryBoys(e) {
+            await this.$http
+                .get(`/admin/deliveryBoys?page=${e - 1}`, {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("token")}`
+                    }
+                })
+                .then(res => {
+                    this.rowsDelivery = res.data.totalElements;
+                    this.users = res.data.content.map(item => {
+                        return { text: item.fullName, value: item.id };
+                    });
                 });
         }
     }

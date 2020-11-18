@@ -146,6 +146,13 @@
                 </b-card-text>
             </b-card>
         </div>
+        <b-pagination
+            v-model="currentPage"
+            :total-rows="rows"
+            :per-page="perPage"
+            @change="getNew"
+            class="mt-5"
+        ></b-pagination>
     </div>
 </template>
 
@@ -153,19 +160,30 @@
 export default {
     data() {
         return {
-            orders: []
+            orders: [],
+            currentPage: 1,
+            rows: 0,
+            perPage: 20
         };
     },
     async mounted() {
-        await this.$http
-            .get("/admin/deliveredOrders?size=100", {
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem("token")}`
-                }
-            })
-            .then(res => {
-                this.orders = res.data.content;
-            });
+        this.getNew(1);
+    },
+    methods: {
+        async getNew(e) {
+            await this.$http
+                .get(`/admin/deliveredOrders?page=${e - 1}`, {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("token")}`
+                    }
+                })
+                .then(res => {
+                    this.rows = res.data.totalElements;
+                    this.orders = res.data.content;
+                    document.body.scrollTop = 0;
+                    document.documentElement.scrollTop = 0;
+                });
+        }
     }
 };
 </script>
